@@ -1,4 +1,4 @@
-# kickstart-modular.nvim
+# Sawyer's config.nvim
 
 ## Introduction
 
