@@ -1,16 +1,8 @@
 -- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
--- NOTE: Here is where you install your plugins.
+
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
+
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
@@ -47,6 +39,12 @@ require('lazy').setup({
   require 'kickstart/plugins/mini',
 
   require 'kickstart/plugins/treesitter',
+
+  require 'custom/plugins/init',
+
+  require 'custom/plugins/autopairs',
+
+  require 'custom/plugins/filetree',
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and

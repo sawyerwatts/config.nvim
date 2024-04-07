@@ -1,0 +1,102 @@
+
+" Don't forget about alt+enter for lsp drop down!
+
+if !has('ide')
+else
+
+    " -----------------------------------------------------
+    " Buffers/Windows, tabs/editors/groups
+    " ------------------------------------
+    " Recall: vim buffers are JB tabs, vim windows are JB groups, and vim tabs
+    " don't exist.
+
+    " This doesn't use bnext or bprev because Rider is doing something weird
+    " with the buffer ordering versus the tabs displayed.
+    nmap <A-h> <Action>(PreviousTab)
+    nmap <A-l> <Action>(NextTab)
+
+    " Buffer move
+    nmap <Leader>bm <Action>(MoveEditorToOppositeTabGroup)
+
+    nmap <Leader>p <Action>(PinActiveEditorTab)
+
+    " There's probably a real vim binding for these, but lazy so fuck it.
+    nmap <Leader>l <Action>(MoveTabRight)
+    nmap <Leader>j <Action>(MoveTabDown)
+
+    " Don't forget about :vs and split w/o args
+
+
+    " -----------------------------------------------------
+    " Tools
+    " -----
+
+    " TODO: Figure out how to easily WindowMode a tool window
+
+    " Don't forget about the IDE-level <A-hjkl> mappings when in tool trees!
+
+    nmap <esc><esc> <Action>(HideActiveWindow)
+
+    nmap <Leader>vc <Action>(ActivateTerminalToolWindow)
+    nmap <Leader>vf <Action>(Terminal.OpenInTerminal)
+    nmap <Leader>vv <Action>(Switcher)
+    nmap <Leader>vp <Action>(ActivateProblemsViewToolWindow)
+
+    " todo: make <Leader>s prefix to switch to terminal, explorer, etc
+    nmap <Leader><Leader> <Action>(SearchEverywhere)
+    nmap <Leader>fc <Action>(GotoClass)
+    nmap <Leader>ft <Action>(TextSearchAction)
+    nmap <Leader>ff <Action>(GotoFile)
+    nmap <Leader>fs <Action>(GotoSymbol)
+    nmap <Leader>fa <Action>(GotoAction)
+    nmap <Leader>fbf <Action>(Find)
+    nmap <Leader>fbr <Action>(Replace)
+
+    nmap <Leader>ms <Action>(ShowBookmarks)
+    nmap <A-.> <Action>(GotoPreviousBookmark)
+    nmap <A-,> <Action>(GotoNextBookmark)
+    " TODO: want a mapping to delete all marks; <Leader>mc
+
+    " Just learn JetBrains' bindings for debugging/running.
+    nmap <leader>db <Action>(ToggleLineBreakpoint)
+
+
+    " -----------------------------------------------------
+    " Coding and Navigation
+    " ---------------------
+
+    set ideajoin
+
+    " Since gd on def will ShowUsages, let's add gr for FindUsages
+    nmap gr <Action>(FindUsages)
+
+    vmap gc <Action>(CommentByLineComment)
+
+    " JetBrains IDEs are incompatible with the vim way of specifying alt keys,
+    " so we have to re-add that binding
+    nmap <A-j> <C-d>zz
+    nmap <A-k> <C-u>zz
+    vmap <A-j> <C-d>zz
+    vmap <A-k> <C-u>zz
+    imap <A-j> <Action>(EditorDown)
+    imap <A-k> <Action>(EditorUp)
+
+    " Made a support ticket for zt/others not working quite right when after an
+    " action: https://youtrack.jetbrains.com/issue/VIM-3337/Subsequent-operation-doesnt-execute-after-ActionMethodDown
+    nmap <A-i> <Action>(MethodDown)zt
+    nmap <A-o> <Action>(MethodUp)zt
+    vmap <A-i> <Action>(MethodDown)zt
+    vmap <A-o> <Action>(MethodUp)zt
+
+    " Recall that shift+k will show docs in vim
+    nmap <Leader>k <Action>(ShowErrorDescription)
+
+    " To see the name of the specific IDE, use :echo &ide
+    if &ide =~? 'JetBrains Rider'
+        nmap <A-;> <Action>(ReSharperGotoNextErrorInSolution)zz
+        nmap <A-,> <Action>(ReSharperGotoPrevErrorInSolution)zz
+    else
+        nmap <A-;> <Action>(GotoNextError)zz
+        nmap <A-,> <Action>(GotoPreviousError)zz
+    endif
+endif
