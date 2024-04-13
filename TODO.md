@@ -1,62 +1,76 @@
 # TODO
 
+- Restructure repo and merge kickstart notes
+- telescope + todo?
+
 ## IDE Features
 
-- dotnet
-  - lsp
-    - autocomplete
-    - docs
-    - decompiler (goto def of a package's func)
-  - formatter (might be built into lsp)
-  - Keep an eye out for
-  - debugger
-- Have file explorer always show curr buffer's path
-- Have a class/method/function explorer
+- lsp, review this for good info:
+    ```vim
+    local augroup = vim.api.nvim_create_augroup
+    local ThePrimeagenGroup = augroup('ThePrimeagen', {})
+    autocmd('LspAttach', {
+    group = ThePrimeagenGroup,
+    callback = function(e)
+    local opts = { buffer = e.buf }
+    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+    end
+    })
+    ```
 - HTTP file syntax and execution, esp envs
 - SQL console
   - I think this is always going to be pretty rough
 
 ## More Features
 
-- Turn off mouse and use arrows to ctl window sizes
-- Currently, nvim insert mode will use C-f/-b to scroll popups (at least docs);
-  tweak this to work in normal mode too
-  - Maybe have left/right arrows resize vertical, and up/down to scroll popups?
-- Harpoon?
-- Put sln/file diags in gutter
-- Setup Neotree bindings?
-- Git?
-- How keep coloration of prompt?
+- Wrap up merging `.vimrc` into nvim
+- Have telescope put search window at top so c-n and c-p aren't backwards
+- [harpoon2](https://github.com/ThePrimeagen/harpoon/tree/harpoon2)
+- <leader>vf helper: `lua print(vim.api.nvim_buf_get_name(0))`
+- Make status line better
+  - Put workspace/document diags in status line
+  - Tweak curr path to only show relative to cwd
+- Git Fugitive?
 - [Buffer, window, and tab management](https://learnvim.irian.to/basics/buffers_windows_tabs)
+  - figure out how to easily find a new file and open it in a side vertical
+    window
+    - keymap to easily `:vert new<CR>` then run the new command?
+    - or is there an easier binding to move the newly opened buffer to a
+      new/existing window?
   ```lua
   --  See `:help wincmd` for a list of all window commands
-  vim.keymap.set('n', '<M-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-  vim.keymap.set('n', '<M-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-  vim.keymap.set('n', '<M-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-  vim.keymap.set('n', '<M-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+  vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+  vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+  vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+  vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
   ```
-  ```vim
-  " Buffers
-  " :ls lists bufffers in a window
-  " :b substr can be used to hop to the matching buffer; if many match, tab
-  " to wildmenu
-  " :on/:only is helpful as it closes all other windows w/in a tab
-  noremap h :bp <CR>
-  noremap l :bn <CR>
-  ```
-- Rename type and file at once
+- Mapping to rename type and file at once
+  - How easily rename curr file in nvim?
+- [trouble](https://github.com/folke/trouble.nvim), maybe
+- mapping to :vs, to back to prior window, and c-^
+- Could write an install script to ensure all the dependencies are installed,
+  copy home configs to configs, etc
+- `-` to open netrw and `+` to make a new vertical window?
 
-## Videos
+## Tmux
 
-- [0 to LSP by Prime](https://www.youtube.com/watch?v=w7i4amO_zaE)
-- [Vim tips/tricks by Prime](https://www.youtube.com/watch?v=FrMRyXtiJkc)
+- Prime uses <C-a> for tmux, I think
+- Tmux if fucking up the colors
 - [Tmux zen config by Dreams of Code](https://www.youtube.com/watch?v=DzNmUNvnB04)
-- [Prime's tmux sessionizer](https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer)
 - [More tmux goodness](https://www.youtube.com/watch?v=0z6akhNyguw)
 - [Even more tmux goodness](https://www.youtube.com/watch?v=UtINDdy-xBc)
+- [Tmux Cheatsheat](https://tmuxcheatsheet.com)
 
 ## Keep an eye out for
 
-- Refactor engine quality
 - Indentation
 

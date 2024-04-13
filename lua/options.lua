@@ -6,7 +6,7 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.mouse = 'n'
+vim.opt.mouse = ''
 
 vim.opt.smartindent = true
 vim.opt.autoindent = true
@@ -44,7 +44,7 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '»_', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '>_', trail = '·', nbsp = '␣' }
 
 vim.opt.inccommand = 'split'
 

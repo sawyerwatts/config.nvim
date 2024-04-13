@@ -3,7 +3,8 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+      -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/List-of-parsers
+      ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'http' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {

@@ -60,8 +60,8 @@ return {
           ['<M-k>'] = cmp.mapping.select_prev_item(),
 
           -- Scroll the documentation window [b]ack / [f]orward
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<Up>'] = cmp.mapping.scroll_docs(-4),
+          ['<Down>'] = cmp.mapping.scroll_docs(4),
 
           -- Accept the completion.
           --  This will auto-import if your LSP supports it.
