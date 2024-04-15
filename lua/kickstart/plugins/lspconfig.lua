@@ -17,49 +17,25 @@ return {
     config = function()
       --  This function gets run when an LSP attaches to a particular buffer.
       vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('Sawyer', { clear = true }),
+        group = vim.api.nvim_create_augroup('SawyerLspAttach', { clear = true }),
         callback = function(event)
-          local map = function(keys, func, desc)
-            vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+          local map = function(mode, keys, func, desc)
+            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+          map('n', 'gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
 
-          map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+          map('n', 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 
-          map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+          map('n', 'gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
 
-          -- Jump to the type of the word under your cursor.
-          map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+          map('n', 'gD', require('telescope.builtin').lsp_type_definitions, '[G]oto [D]eclaration')
 
-          -- WARN: This is not Goto Definition, this is Goto Declaration.
-          --  For example, in C this would take you to the header.
-          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          map('n', '<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 
-          -- TODO: keymap to display members and functions
-          -- TODO: keymaps to goto prev and next member/top-level object
-          -- TODO: gci and gco (goto calls incoming/outgoing)
-          -- TODO: structure/outline plane
+          map('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-          -- Fuzzy find all the symbols in your current document.
-          --  Symbols are things like variables, functions, types, etc.
-          map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-
-          -- Fuzzy find all the symbols in your current workspace.
-          --  Similar to document symbols, except searches over your entire project.
-          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-
-          -- Rename the variable under your cursor.
-          --  Most Language Servers support renaming across files, etc.
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-
-          -- Execute a code action, usually your cursor needs to be on top of an error
-          -- or a suggestion from your LSP for this to activate.
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-
-          -- Opens a popup that displays documentation about the word under your cursor
-          --  See `:help K` for why this keymap.
-          map('K', vim.lsp.buf.hover, 'Hover Documentation')
+          map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
@@ -78,6 +54,68 @@ return {
               callback = vim.lsp.buf.clear_references,
             })
           end
+
+          ---------------------------------------------------------------------
+          -- Goto prev/next document symbols
+          ----------------------------------
+
+          local get_prev_next_symbols = function(t)
+            local curr_lnum, curr_col = unpack(vim.api.nvim_win_get_cursor(0))
+            local prev_symbol_pos = nil
+            local next_symbol_pos = nil
+
+            for _, item in pairs(t.items) do
+              local item_lnum = 1
+              local item_col = 0
+              for k, v in pairs(item) do
+                if k == 'lnum' then
+                  item_lnum = v
+                elseif k == 'col' then
+                  item_col = v - 1
+                end
+              end
+
+              local item_pos = { item_lnum, item_col }
+              if item_lnum < curr_lnum then
+                prev_symbol_pos = item_pos
+              elseif item_lnum > curr_lnum then
+                next_symbol_pos = item_pos
+                break
+              elseif item_col < curr_col then
+                prev_symbol_pos = item_pos
+              elseif item_col > curr_col then
+                next_symbol_pos = item_pos
+                break
+              end
+            end
+
+            return prev_symbol_pos, next_symbol_pos
+          end
+
+          local goto_prev_symbol = function(t)
+            local prev_symbol_pos, _ = get_prev_next_symbols(t)
+            if prev_symbol_pos == nil then
+              vim.print 'No prev symbol in document'
+              return
+            end
+            vim.api.nvim_win_set_cursor(0, prev_symbol_pos)
+          end
+
+          local goto_next_symbol = function(t)
+            local _, next_symbol_pos = get_prev_next_symbols(t)
+            if next_symbol_pos == nil then
+              vim.print 'No next symbol in document'
+              return
+            end
+            vim.api.nvim_win_set_cursor(0, next_symbol_pos)
+          end
+
+          map({ 'n', 'v' }, '<M-i>', function()
+            vim.lsp.buf.document_symbol { on_list = goto_next_symbol }
+          end, 'Move to next document symbol (using modified Jumplist motions)')
+          map({ 'n', 'v' }, '<M-o>', function()
+            vim.lsp.buf.document_symbol { on_list = goto_prev_symbol }
+          end, 'Move to prev document symbol (using modified Jumplist motions)')
         end,
       })
 

@@ -6,7 +6,7 @@
 --  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('Sawyer', { clear = true }),
+  group = vim.api.nvim_create_augroup('SawyerYankText', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.api.nvim_create_autocmd('BufWritePre', {
   desc = 'Automatically trim whitespace on buffer write',
-  group = vim.api.nvim_create_augroup('Sawyer', { clear = true }),
+  group = vim.api.nvim_create_augroup('SawyerTrimBuffer', { clear = true }),
   pattern = { '*' },
   command = [[%s/\s\+$//e]],
 })

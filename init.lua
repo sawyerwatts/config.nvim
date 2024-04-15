@@ -17,7 +17,10 @@ If you experience any errors while trying to install kickstart, run `:checkhealt
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.g.have_nerd_font = false
+-- Install/unzip FiraMono (available at nerdfonts.com) to ~/.local/share/fonts,
+-- adjust the terminal to use that font's Mono variant, and then turn this to
+-- true to get fun icons.
+vim.g.have_nerd_font = true
 
 -- .bash_aliases will need `shopt -s expand_aliases`
 vim.cmd 'let $BASH_ENV="~/.bash_aliases"'
@@ -33,6 +36,8 @@ require 'lazy-bootstrap'
 
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
+
+require 'autocommands'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
