@@ -17,9 +17,6 @@ If you experience any errors while trying to install kickstart, run `:checkhealt
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Install/unzip FiraMono (available at nerdfonts.com) to ~/.local/share/fonts,
--- adjust the terminal to use that font's Mono variant, and then turn this to
--- true to get fun icons.
 vim.g.have_nerd_font = true
 
 -- .bash_aliases will need `shopt -s expand_aliases`

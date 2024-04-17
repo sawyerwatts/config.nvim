@@ -45,7 +45,7 @@ vim.keymap.set('n', '<C-f>', '<cmd> silent !tmux neww ~/.config/nvim/aux/tmux-se
 -- vim.cmd 'let g:netrw_banner=0'
 vim.g.netrw_liststyle = 3
 vim.g.netrw_bufsettings = 'noma nomod rnu nobl nowrap ro'
-vim.keymap.set('n', '<leader>nb', vim.cmd.Ex, { desc = '[V]iew [N]etrw' })
+vim.keymap.set('n', '<leader>nw', vim.cmd.Ex, { desc = 'View [N]etrw in this [W]indow' })
 
 -------------------------------------------------------------------------------
 -- Diagnostic
@@ -100,12 +100,12 @@ vim.keymap.set('n', '<leader>tfo', function()
   vim.cmd(':split term://' .. getdirname(vim.api.nvim_buf_get_name(0)) .. '//bash')
 end, { desc = "Open [T]erminal (w/ cwd of [F]ile's dir) h[O]rizontally" })
 
-vim.keymap.set('n', '<leader>tb', function()
+vim.keymap.set('n', '<leader>tw', function()
   vim.cmd ':edit term://bash'
-end, { desc = 'Open [T]erminal in this [B]uffer' })
+end, { desc = 'Open [T]erminal in this [w]indow' })
 
-vim.keymap.set('n', '<leader>tfb', function()
+vim.keymap.set('n', '<leader>tfw', function()
   vim.cmd(':edit term://' .. getdirname(vim.api.nvim_buf_get_name(0)) .. '//bash')
-end, { desc = "Open [T]erminal (w/ cwd of [F]ile's dir) in this [B]uffer" })
+end, { desc = "Open [T]erminal (w/ cwd of [F]ile's dir) in this [W]indow" })
 
 -- vim: ts=2 sts=2 sw=2 et
