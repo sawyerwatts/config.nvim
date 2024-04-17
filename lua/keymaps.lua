@@ -17,6 +17,9 @@ vim.keymap.set('x', '<leader>p', '"_dP')
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
 
+-- `<C-S-^>` is super obnoxious (thanks WSL), so rebind that.
+vim.keymap.set('n', '<leader>6', '<C-S-6>')
+
 -------------------------------------------------------------------------------
 -- Window and Tmux
 ------------------
