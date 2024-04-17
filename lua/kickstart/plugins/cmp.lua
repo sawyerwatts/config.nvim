@@ -59,7 +59,6 @@ return {
           -- Select the [p]revious item
           ['<M-k>'] = cmp.mapping.select_prev_item(),
 
-          -- Scroll the documentation window [b]ack / [f]orward
           ['<Up>'] = cmp.mapping.scroll_docs(-4),
           ['<Down>'] = cmp.mapping.scroll_docs(4),
 
