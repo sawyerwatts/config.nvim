@@ -5,6 +5,10 @@ These items are broadly organized be priority.
 - Make status line better
   - Tweak curr path to only show relative to cwd
   - Put workspace/document diags in status line
+- It could be better to use tmux windows/planes instead of having nvim kick up
+  terminals
+  - vim-tmux-navigator would prob help
+  - This could be esp helpful since wsl doesn't play nice w/ `<esc><esc>`
 - Restructure repo and merge kickstart notes
   - Here's how to get lazy to load a dir dynamically:
   ```lua
@@ -19,10 +23,6 @@ These items are broadly organized be priority.
 - Mapping to rename type and file at once
   - How easily rename curr file in nvim?
   - Or is this an lsp service?
-- It could be better to use tmux windows/planes instead of having nvim kick up
-  terminals
-  - vim-tmux-navigator would prob help
-  - This could be esp helpful since wsl doesn't play nice w/ `<esc><esc>`
 - telescope + todo
 - gci and gco (goto calls incoming/outgoing)
 - Get `zt` working after `<M-i/o>`
