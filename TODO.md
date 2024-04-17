@@ -2,7 +2,6 @@
 
 These items are broadly organized be priority.
 
-- `<C-S-^>` is super obnoxious
 - Make status line better
   - Tweak curr path to only show relative to cwd
   - Put workspace/document diags in status line
