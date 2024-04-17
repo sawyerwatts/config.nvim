@@ -1,10 +1,6 @@
 # TODO
 
-## High Priority
-
-- [harpoon2](https://github.com/ThePrimeagen/harpoon/tree/harpoon2)
-
-## Medium Priority
+These items are broadly organized be priority.
 
 - Make status line better
   - Tweak curr path to only show relative to cwd
@@ -26,9 +22,7 @@
 - It could be better to use tmux windows/planes instead of having nvim kick up
   terminals
   - vim-tmux-navigator would prob help
-
-## Low Priority
-
+  - This could be esp helpful since wsl doesn't play nice w/ `<esc><esc>`
 - telescope + todo
 - gci and gco (goto calls incoming/outgoing)
 - Get `zt` working after `<M-i/o>`

@@ -46,6 +46,8 @@ require('lazy').setup({
 
   require 'custom/plugins/treesitter-context',
 
+  require 'custom/plugins/harpoon',
+
   require 'custom/plugins/omnisharp',
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
