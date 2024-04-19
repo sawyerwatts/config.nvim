@@ -22,7 +22,6 @@ These items are broadly organized be priority.
 - Mapping to rename type and file at once
   - How easily rename curr file in nvim?
   - Or is this an lsp service?
-- telescope + todo
 - gci and gco (goto calls incoming/outgoing)
 - Get `zt` working after `<M-i/o>`
 - Git Fugitive?

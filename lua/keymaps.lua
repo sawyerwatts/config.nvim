@@ -74,6 +74,17 @@ vim.keymap.set('v', '<leader>wb', ':w !bash<CR>', { desc = '[W]rite selected con
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+vim.keymap.set('n', '<M-t>', function()
+  for _, buf_id in pairs(vim.api.nvim_list_bufs()) do
+    local buf_name = 'name: ' .. vim.api.nvim_buf_get_name(buf_id)
+    if string.sub(buf_name, 1, string.len 'name: term://') == 'name: term://' then
+      vim.cmd(':buffer ' .. buf_id)
+      return
+    end
+  end
+  vim.cmd ':term'
+end, { desc = 'Create or open terminal in curr window' })
+
 -- NOTE: Keeping this around just in case, but with Harpoon and <leader>mv and
 -- netrw, these don't seem relevant anymore.
 --
