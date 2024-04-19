@@ -74,38 +74,41 @@ vim.keymap.set('v', '<leader>wb', ':w !bash<CR>', { desc = '[W]rite selected con
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-local getdirname = function(filepath)
-  local dir = ''
-  local prior = ''
-  for s in string.gmatch(filepath, '([^/]+)') do
-    dir = dir .. prior
-    prior = '/' .. s
-  end
-  return dir
-end
-
-vim.keymap.set('n', '<leader>tv', function()
-  vim.cmd ':vsplit term://bash'
-end, { desc = 'Open [T]erminal [V]ertically' })
-
-vim.keymap.set('n', '<leader>to', function()
-  vim.cmd ':split term://bash'
-end, { desc = 'Open [T]erminal h[O]rizontally' })
-
-vim.keymap.set('n', '<leader>tfv', function()
-  vim.cmd(':vsplit term://' .. getdirname(vim.api.nvim_buf_get_name(0)) .. '//bash')
-end, { desc = "Open [T]erminal (w/ cwd of [F]ile's dir) [V]ertically" })
-
-vim.keymap.set('n', '<leader>tfo', function()
-  vim.cmd(':split term://' .. getdirname(vim.api.nvim_buf_get_name(0)) .. '//bash')
-end, { desc = "Open [T]erminal (w/ cwd of [F]ile's dir) h[O]rizontally" })
-
-vim.keymap.set('n', '<leader>tw', function()
-  vim.cmd ':edit term://bash'
-end, { desc = 'Open [T]erminal in this [w]indow' })
-
-vim.keymap.set('n', '<leader>tfw', function()
-  vim.cmd(':edit term://' .. getdirname(vim.api.nvim_buf_get_name(0)) .. '//bash')
-end, { desc = "Open [T]erminal (w/ cwd of [F]ile's dir) in this [W]indow" })
+-- NOTE: Keeping this around just in case, but with Harpoon and <leader>mv and
+-- netrw, these don't seem relevant anymore.
+--
+-- local getdirname = function(filepath)
+--   local dir = ''
+--   local prior = ''
+--   for s in string.gmatch(filepath, '([^/]+)') do
+--     dir = dir .. prior
+--     prior = '/' .. s
+--   end
+--   return dir
+-- end
+--
+-- vim.keymap.set('n', '<leader>tv', function()
+--   vim.cmd ':vsplit term://bash'
+-- end, { desc = 'Open [T]erminal [V]ertically' })
+--
+-- vim.keymap.set('n', '<leader>to', function()
+--   vim.cmd ':split term://bash'
+-- end, { desc = 'Open [T]erminal h[O]rizontally' })
+--
+-- vim.keymap.set('n', '<leader>tfv', function()
+--   vim.cmd(':vsplit term://' .. getdirname(vim.api.nvim_buf_get_name(0)) .. '//bash')
+-- end, { desc = "Open [T]erminal (w/ cwd of [F]ile's dir) [V]ertically" })
+--
+-- vim.keymap.set('n', '<leader>tfo', function()
+--   vim.cmd(':split term://' .. getdirname(vim.api.nvim_buf_get_name(0)) .. '//bash')
+-- end, { desc = "Open [T]erminal (w/ cwd of [F]ile's dir) h[O]rizontally" })
+--
+-- vim.keymap.set('n', '<leader>tw', function()
+--   vim.cmd ':edit term://bash'
+-- end, { desc = 'Open [T]erminal in this [w]indow' })
+--
+-- vim.keymap.set('n', '<leader>tfw', function()
+--   vim.cmd(':edit term://' .. getdirname(vim.api.nvim_buf_get_name(0)) .. '//bash')
+-- end, { desc = "Open [T]erminal (w/ cwd of [F]ile's dir) in this [W]indow" })
 
 -- vim: ts=2 sts=2 sw=2 et
