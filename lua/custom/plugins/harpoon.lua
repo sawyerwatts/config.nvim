@@ -9,32 +9,33 @@ return {
     local harpoon = require 'harpoon'
     harpoon:setup()
 
-    vim.keymap.set('n', '<leader>ha', function()
+    vim.keymap.set('n', '<leader>a', function()
       harpoon:list():add()
-    end, { desc = '[H]arpoon (Add)' })
+    end, { desc = 'Harpoon [A]dd' })
 
     vim.keymap.set('n', '<leader>l', function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
-    end, { desc = '(Harpoon) toggle quick [L]ist' })
+    end, { desc = 'Toggle Harpoon quick [L]ist' })
 
-    vim.keymap.set('n', '<M-f>', function()
+    vim.keymap.set({ 'n', 't' }, '<M-f>', function()
       harpoon:list():select(1)
     end)
-    vim.keymap.set('n', '<M-d>', function()
+    vim.keymap.set({ 'n', 't' }, '<M-d>', function()
       harpoon:list():select(2)
     end)
-    vim.keymap.set('n', '<M-s>', function()
+    vim.keymap.set({ 'n', 't' }, '<M-s>', function()
       harpoon:list():select(3)
     end)
-    vim.keymap.set('n', '<M-a>', function()
+    vim.keymap.set({ 'n', 't' }, '<M-a>', function()
       harpoon:list():select(4)
     end)
 
-    vim.keymap.set('n', '<M-h>', function()
-      harpoon:list():prev()
-    end)
-    vim.keymap.set('n', '<M-l>', function()
-      harpoon:list():next()
-    end)
+    -- These might be useful later.
+    -- vim.keymap.set({ 'n', 't' }, '<M-h>', function()
+    --   harpoon:list():prev()
+    -- end)
+    -- vim.keymap.set({ 'n', 't' }, '<M-l>', function()
+    --   harpoon:list():next()
+    -- end)
   end,
 }
