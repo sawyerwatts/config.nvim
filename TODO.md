@@ -10,9 +10,6 @@ These items are broadly organized be priority.
   ```lua
   require('Lazy').setup('path.to.plugins.dir')
   ```
-- It could be better to use tmux windows/planes instead of having nvim kick up
-  terminals
-  - vim-tmux-navigator would prob help
 - HTTP file syntax and execution, esp envs
 - SQL
   - Querying
@@ -22,8 +19,7 @@ These items are broadly organized be priority.
 - Mapping to rename type and file at once
   - How easily rename curr file in nvim?
   - Or is this an lsp service?
-- gci and gco (goto calls incoming/outgoing)
 - Get `zt` working after `<M-i/o>`
 - Git Fugitive?
-- toggle perminant light vs dark modes (tmux too)
+- toggle perminant light vs dark modes (tmux too?)
 

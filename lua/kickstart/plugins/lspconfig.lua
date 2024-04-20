@@ -24,17 +24,13 @@ return {
           end
 
           map('n', 'gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-
           map('n', 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-
           map('n', 'gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-
           map('n', 'gD', require('telescope.builtin').lsp_type_definitions, '[G]oto [D]eclaration')
-
-          map('n', '<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-
-          map('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-
+          map('n', 'gci', require('telescope.builtin').lsp_incoming_calls, '[G]oto [C]alls [I]ncoming')
+          map('n', 'gco', require('telescope.builtin').lsp_outgoing_calls, '[G]oto [C]alls [O]utgoing')
+          map('n', '<F2>', vim.lsp.buf.rename, 'Rename')
+          map('n', '<M-CR>', vim.lsp.buf.code_action, 'Code action')
           map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
 
           -- The following two autocommands are used to highlight references of the
