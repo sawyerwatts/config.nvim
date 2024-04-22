@@ -77,16 +77,16 @@ return {
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>ssd', builtin.lsp_document_symbols, { desc = '[S]earch for [S]ymbols in LSP [D]ocument' })
-      vim.keymap.set('n', '<leader>ssw', builtin.lsp_dynamic_workspace_symbols, { desc = '[S]earch for [S]ymbols in LSP [W]orkspace' })
+      vim.keymap.set('n', '<leader>ds', builtin.lsp_document_symbols, { desc = 'Search [D]ocument for [S]ymbols' })
+      vim.keymap.set('n', '<leader>ws', builtin.lsp_dynamic_workspace_symbols, { desc = 'Seach [W]orkspace for [S]ymbols' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>sv', builtin.git_files, { desc = '[S]earch [V]ersion controled files' })
+      vim.keymap.set('n', '<leader>sv', builtin.git_files, { desc = '[S]earch [V]ersion controlled files' })
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-      vim.keymap.set('n', '<leader>st', builtin.builtin, { desc = '[S]earch [T]elescope' })
+      --eim.keymap.set('n', '<leader>st', builtin.builtin, { desc = '[S]earch [T]elescope' })
       vim.keymap.set('n', '<leader>st', function()
         vim.cmd ':TodoTelescope'
-      end, { desc = '[S]earch [T]elescope' })
+      end, { desc = '[S]earch [T]odos' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })

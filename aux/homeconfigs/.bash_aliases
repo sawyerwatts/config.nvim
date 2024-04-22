@@ -8,5 +8,7 @@ alias l='ls -alFh'
 alias vi='nvim'
 alias vim='nvim'
 
+alias tmuxn='tmux new -s ${PWD##*/}'
+
 alias treecs='tree -I bin -I obj -I Logs'
 

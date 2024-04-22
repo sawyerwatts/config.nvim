@@ -18,6 +18,10 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      -- TODO: for filename, only show relative to CWD
+      --  this is called relative, and is enabled by default in short mode, so
+      --  it must be easy to enable
+
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
@@ -32,6 +36,12 @@ return {
       statusline.section_location = function()
         return '%2l:%-2v'
       end
+
+      -- TODO: don't hide diags when in short mode
+      --  also use workspace diags, not document diags
+
+      -- TODO: use chars for diags, and always incude
+      --  move git stuff to tmux
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim

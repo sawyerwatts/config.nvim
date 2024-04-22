@@ -36,7 +36,7 @@ vim.keymap.set('n', '<leader>mo', '<cmd>split<cr><C-W><C-W>', { desc = '"Move" 
 vim.keymap.set('n', '<Left>', ':vertical res -5<CR>', { desc = 'Vertical res -5' })
 vim.keymap.set('n', '<Right>', ':vertical res +5<CR>', { desc = 'Vertical res +5' })
 
-vim.keymap.set('n', '<C-f>', '<cmd> silent !tmux neww ~/.config/nvim/aux/tmux-sessionizer.sh<CR>')
+vim.keymap.set('n', '<C-f>', '<cmd> silent !tmux neww ' .. vim.fn.stdpath 'config' .. '/aux/tmux-sessionizer.sh<CR>')
 
 -------------------------------------------------------------------------------
 -- netrw
@@ -45,7 +45,7 @@ vim.keymap.set('n', '<C-f>', '<cmd> silent !tmux neww ~/.config/nvim/aux/tmux-se
 -- vim.cmd 'let g:netrw_banner=0'
 vim.g.netrw_liststyle = 3
 vim.g.netrw_bufsettings = 'noma nomod rnu nobl nowrap ro'
-vim.keymap.set('n', '<leader>nw', vim.cmd.Ex, { desc = 'View [N]etrw in this [W]indow' })
+vim.keymap.set('n', '<leader>n', vim.cmd.Ex, { desc = 'View [N]etrw (in this window)' })
 
 -------------------------------------------------------------------------------
 -- Diagnostic

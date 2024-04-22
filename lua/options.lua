@@ -8,6 +8,7 @@ vim.opt.relativenumber = true
 
 vim.opt.mouse = ''
 
+vim.opt.tabstop = 4
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 -- Might want expandtab too

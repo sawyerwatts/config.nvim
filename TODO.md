@@ -2,9 +2,12 @@
 
 These items are broadly organized be priority.
 
-- Make status line better
-  - Tweak curr path to only show relative to cwd
-  - Put workspace/document diags in status line
+- <leader>qo and <leader>qc to open/close quickfix list?
+  - what about location list?
+  - Change telescope to use C-l instead of C-q?
+- Figure out where `err.inn` snippet is coming from
+- If go func has more than 1 param, auto split across many lines
+- Rainbow brackets
 - Restructure repo and merge kickstart notes
   - Here's how to get lazy to load a dir dynamically:
   ```lua
