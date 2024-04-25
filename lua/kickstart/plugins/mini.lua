@@ -18,10 +18,6 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
-      -- TODO: for filename, only show relative to CWD
-      --  this is called relative, and is enabled by default in short mode, so
-      --  it must be easy to enable
-
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
@@ -37,14 +33,23 @@ return {
         return '%2l:%-2v'
       end
 
-      -- TODO: don't hide diags when in short mode
-      --  also use workspace diags, not document diags
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_git = function() end
 
-      -- TODO: use chars for diags, and always incude
-      --  move git stuff to tmux
-
-      -- ... and there is more!
-      --  Check out: https://github.com/echasnovski/mini.nvim
+      ---@diagnostic disable-next-line: duplicate-set-field
+      MiniStatusline.section_filename = function(args)
+        -- In terminal always use plain name
+        if vim.bo.buftype == 'terminal' then
+          return '%t'
+        elseif MiniStatusline.is_truncated(args.trunc_width) then
+          -- File name with 'truncate', 'modified', 'readonly' flags
+          -- Use relative path if truncated
+          return '%f%m%r'
+        else
+          -- Use fullpath if not truncated
+          return '%f%m%r'
+        end
+      end
     end,
   },
 }
