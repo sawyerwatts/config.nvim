@@ -33,8 +33,13 @@ vim.keymap.set('n', '<leader>6', '<C-S-6>')
 vim.keymap.set('n', '<leader>mv', '<cmd>vs<cr><C-W><C-W>', { desc = '"Move" curr buffer in new vsplit' })
 vim.keymap.set('n', '<leader>mo', '<cmd>split<cr><C-W><C-W>', { desc = '"Move" curr buffer in new split' })
 
-vim.keymap.set('n', '<Left>', ':vertical res -5<CR>', { desc = 'Vertical res -5' })
-vim.keymap.set('n', '<Right>', ':vertical res +5<CR>', { desc = 'Vertical res +5' })
+vim.keymap.set('n', '<Left>', '<cmd>vertical res -5<CR>', { desc = 'Vertical res -5' })
+vim.keymap.set('n', '<Right>', '<cmd>vertical res +5<CR>', { desc = 'Vertical res +5' })
+
+vim.keymap.set('n', '<leader>co', '<cmd>copen<cr>', { desc = 'Quickfix list open' })
+vim.keymap.set('n', '<leader>cc', '<cmd>cclose<cr>', { desc = 'Quickfix list close' })
+vim.keymap.set('n', '<leader>cd', ':cdo', { desc = 'Quickfix list do' })
+vim.keymap.set('n', '<leader>cf', ':cfdo', { desc = 'Quickfix list file do' })
 
 vim.keymap.set('n', '<C-f>', '<cmd> silent !tmux neww ' .. vim.fn.stdpath 'config' .. '/aux/tmux-sessionizer.sh<CR>')
 
@@ -59,8 +64,8 @@ vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, { desc = 'Show diagn
 -- Write
 --------
 
-vim.keymap.set('n', '<leader>wb', ':w !bash<CR>', { desc = '[W]rite file contents to [B]ash as STDIN' })
-vim.keymap.set('v', '<leader>wb', ':w !bash<CR>', { desc = '[W]rite selected contents to [B]ash as STDIN' })
+vim.keymap.set('n', '<leader>wb', '<cmd>w !bash<CR>', { desc = '[W]rite file contents to [B]ash as STDIN' })
+vim.keymap.set('v', '<leader>wb', '<cmd>w !bash<CR>', { desc = '[W]rite selected contents to [B]ash as STDIN' })
 
 -------------------------------------------------------------------------------
 -- Terminal

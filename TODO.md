@@ -2,12 +2,13 @@
 
 These items are broadly organized be priority.
 
-- <leader>qo and <leader>qc to open/close quickfix list?
-  - what about location list?
-  - Change telescope to use C-l instead of C-q?
+- From w/in an nvim integrated terminal, open a file and send it to the parent
+  nvim process as the selected buffer
 - Figure out where `err.inn` snippet is coming from
 - If go func has more than 1 param, auto split across many lines
 - Rainbow brackets
+- [Rainbow CSV](https://github.com/mechatroner/rainbow_csv)
+- Inline types and param names
 - Restructure repo and merge kickstart notes
   - Here's how to get lazy to load a dir dynamically:
   ```lua
