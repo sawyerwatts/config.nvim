@@ -2,6 +2,7 @@
 
 These items are broadly organized be priority.
 
+- Clean up kickstart notes
 - Rainbow brackets
 - [Rainbow CSV](https://github.com/mechatroner/rainbow_csv)
 - HTTP file syntax and execution, esp envs
