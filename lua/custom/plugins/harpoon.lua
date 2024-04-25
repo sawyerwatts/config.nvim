@@ -5,6 +5,9 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope.nvim',
   },
+  settings = {
+    save_on_toggle = true,
+  },
   init = function()
     local harpoon = require 'harpoon'
     harpoon:setup()
