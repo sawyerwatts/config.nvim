@@ -36,8 +36,11 @@ require 'lazy-plugins'
 
 require 'autocommands'
 
-vim.cmd ':term'
-vim.cmd ':e #'
+-- NOTE: This used to be used to automatically start a shell buffer "in the
+-- background", but it was breaking readingFromStdin, and without a good
+-- autocommand to tie this to, I just turned it off.
+-- vim.cmd ':term'
+-- vim.cmd ':e #'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

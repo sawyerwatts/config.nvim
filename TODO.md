@@ -2,13 +2,8 @@
 
 These items are broadly organized be priority.
 
-- From w/in an nvim integrated terminal, open a file and send it to the parent
-  nvim process as the selected buffer
-- Figure out where `err.inn` snippet is coming from
-- If go func has more than 1 param, auto split across many lines
 - Rainbow brackets
 - [Rainbow CSV](https://github.com/mechatroner/rainbow_csv)
-- Inline types and param names
 - Restructure repo and merge kickstart notes
   - Here's how to get lazy to load a dir dynamically:
   ```lua
@@ -26,4 +21,10 @@ These items are broadly organized be priority.
 - Get `zt` working after `<M-i/o>`
 - Git Fugitive?
 - toggle perminant light vs dark modes (tmux too?)
+
+## Go
+
+- Figure out where `err.inn` snippet is coming from
+- If go func has more than 1 param, auto split across many lines
+- Inline types and param names
 
