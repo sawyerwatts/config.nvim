@@ -4,11 +4,6 @@ These items are broadly organized be priority.
 
 - Rainbow brackets
 - [Rainbow CSV](https://github.com/mechatroner/rainbow_csv)
-- Restructure repo and merge kickstart notes
-  - Here's how to get lazy to load a dir dynamically:
-  ```lua
-  require('Lazy').setup('path.to.plugins.dir')
-  ```
 - HTTP file syntax and execution, esp envs
 - SQL
   - Querying
@@ -24,8 +19,9 @@ These items are broadly organized be priority.
 
 ## Go
 
-- Figure out where `err.inn` snippet is coming from
-- If go func has more than 1 param, auto split across many lines
+- kickstart came with `debug.lua` for go debugging; look into this more
 - Inline types and param names
 - gopls see what interfaces a struct implements
+- Figure out where `err.inn` snippet is coming from
+- If go func has more than 1 param, auto split across many lines
 
