@@ -27,4 +27,5 @@ These items are broadly organized be priority.
 - Figure out where `err.inn` snippet is coming from
 - If go func has more than 1 param, auto split across many lines
 - Inline types and param names
+- gopls see what interfaces a struct implements
 
