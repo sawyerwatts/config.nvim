@@ -5,11 +5,25 @@ return {
   {
     'folke/tokyonight.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
-    init = function()
-      vim.cmd.colorscheme 'tokyonight-night'
-
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
-    end,
+  },
+  {
+    'iagorrr/noctis-high-contrast.nvim',
+    priority = 1000,
+  },
+  {
+    'miikanissi/modus-themes.nvim',
+    priority = 1000,
+  },
+  {
+    'sainnhe/sonokai',
+    priority = 1000,
+  },
+  {
+    'morhetz/gruvbox',
+    priority = 1000,
+  },
+  {
+    'tomasr/molokai',
+    priority = 1000,
   },
 }

@@ -36,6 +36,12 @@ require 'lazy-plugins'
 
 require 'autocommands'
 
+vim.cmd [[set t_Co=256]]
+vim.cmd.colorscheme 'molokai'
+
+-- You can configure highlights by doing something like:
+-- vim.cmd.hi 'Comment gui=none'
+
 -- NOTE: This used to be used to automatically start a shell buffer "in the
 -- background", but it was breaking readingFromStdin, and without a good
 -- autocommand to tie this to, I just turned it off.
