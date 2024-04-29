@@ -36,8 +36,7 @@ require 'lazy-plugins'
 
 require 'autocommands'
 
-vim.cmd [[set t_Co=256]]
-vim.cmd.colorscheme 'molokai'
+vim.cmd.colorscheme 'dracula'
 
 -- You can configure highlights by doing something like:
 -- vim.cmd.hi 'Comment gui=none'
