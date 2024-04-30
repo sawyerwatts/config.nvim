@@ -25,10 +25,6 @@ vim.api.nvim_create_autocmd('ColorScheme', {
   callback = function(event)
     local colo = event.match
 
-    local init_lua = vim.fn.stdpath 'config' .. '/init.lua'
-    vim.cmd([[:!sed -i "s/^vim.cmd.colorscheme '.\+'$/vim.cmd.colorscheme ']] .. colo .. [['/" ]] .. init_lua)
-
-    local tmux_conf = [[~/.tmux.conf]]
     local bg = [[191726]]
     local fg = [[cdcbe0]]
     -- https://github.com/EdenEast/nightfox.nvim/tree/main/lua/nightfox/palette
@@ -56,14 +52,23 @@ vim.api.nvim_create_autocmd('ColorScheme', {
       fg = [[3760bf]]
     end
 
-    vim.cmd([[:!sed -i "s/^set -g status-bg '.\+'$/set -g status-bg '\#]] .. bg .. [['/" ]] .. tmux_conf)
-    vim.cmd([[:!sed -i "s/^set -g status-fg '.\+'$/set -g status-fg '\#]] .. fg .. [['/" ]] .. tmux_conf)
-    vim.cmd([[:!tmux source ]] .. tmux_conf)
+    local init_lua = vim.fn.stdpath 'config' .. '/init.lua'
+    local tmux_conf = [[~/.tmux.conf]]
+    local cmds = {
+      [[:silent !sed -i "s/^vim.cmd.colorscheme '.\+'$/vim.cmd.colorscheme ']] .. colo .. [['/" ]] .. init_lua,
+      [[:silent !sed -i "s/^set -g status-bg '.\+'$/set -g status-bg '\#]] .. bg .. [['/" ]] .. tmux_conf,
+      [[:silent !sed -i "s/^set -g status-fg '.\+'$/set -g status-fg '\#]] .. fg .. [['/" ]] .. tmux_conf,
+      [[:silent !tmux source ]] .. tmux_conf,
+    }
+    for _, cmd in pairs(cmds) do
+      vim.cmd(cmd)
+    end
 
     -- TODO: It would be pretty slick to signal all open nvim instances that
     -- they should update their colo as well (be careful of infinite loops!!).
     -- Or at least have a keymap to quickly `:so` the `init.lua` and `tmux
     -- source ~/.tmux.conf`
+    -- <leader>cs
   end,
 })
 
