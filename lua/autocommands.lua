@@ -25,8 +25,8 @@ vim.api.nvim_create_autocmd('ColorScheme', {
   callback = function(event)
     local colo = event.match
 
-    local bg = [[191726]]
-    local fg = [[cdcbe0]]
+    local bg = [[3b4261]]
+    local fg = [[c0caf5]]
     -- https://github.com/EdenEast/nightfox.nvim/tree/main/lua/nightfox/palette
     if colo == 'carbonfox' then
       bg = [[0c0c0c]]
