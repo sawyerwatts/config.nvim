@@ -29,8 +29,8 @@ return {
           map('n', 'gD', require('telescope.builtin').lsp_type_definitions, '[G]oto [D]eclaration')
           map('n', 'gci', require('telescope.builtin').lsp_incoming_calls, '[G]oto [C]alls [I]ncoming')
           map('n', 'gco', require('telescope.builtin').lsp_outgoing_calls, '[G]oto [C]alls [O]utgoing')
-          map('n', '<F2>', vim.lsp.buf.rename, 'Rename')
-          map('n', '<M-CR>', vim.lsp.buf.code_action, 'Code action')
+          map('n', '<leader>cr', vim.lsp.buf.rename, '[C]ode [R]ename')
+          map('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
           map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
 
           -- The following two autocommands are used to highlight references of the
@@ -106,6 +106,12 @@ return {
             vim.api.nvim_win_set_cursor(0, next_symbol_pos)
           end
 
+          -- TODO: the problem is w/ vim.lsp.buf??
+          -- this works correctly:
+          -- Demo = function()
+          --   vim.api.nvim_win_set_cursor(0, { 10, 10 })
+          -- end
+          -- vim.keymap.set('n', '<leader>demo', '<cmd>lua Demo()<cr><C-g>')
           map({ 'n', 'v' }, '<M-i>', function()
             vim.lsp.buf.document_symbol { on_list = goto_next_symbol }
           end, 'Move to next document symbol (using modified Jumplist motions)')

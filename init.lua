@@ -36,7 +36,7 @@ require 'lazy-plugins'
 
 require 'autocommands'
 
-vim.cmd.colorscheme 'carbonfox'
+vim.cmd.colorscheme 'nightfox'
 
 -- You can configure highlights by doing something like:
 -- vim.cmd.hi 'Comment gui=none'
