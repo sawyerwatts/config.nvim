@@ -2,6 +2,8 @@ return {
   'nvim-treesitter/nvim-treesitter-context',
   config = function()
     local tsc = require 'treesitter-context'
+    -- BUG: If q: or g/ while ts-ctx is open, then the screen'll wig out. TS-Ctx
+    -- says this is a bug with nvim that's being patched.
     tsc.setup {
       enable = true,
       max_lines = 0,
@@ -12,10 +14,8 @@ return {
       mode = 'cursor',
       separator = nil,
       zindex = 20,
-      -- BUG: this breaks the cmd window; the GH issue says it's an issue with
-      -- nvim and should be resolved later.
       -- on_attach = function()
-      --   vim.cmd 'hi TreesitterContext guibg=NONE'
+      --   -- vim.cmd 'hi TreesitterContext guibg=NONE'
       --   vim.cmd 'hi TreesitterContextBottom gui=underline'
       --   return true
       -- end,
