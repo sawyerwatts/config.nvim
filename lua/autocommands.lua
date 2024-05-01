@@ -63,13 +63,14 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     for _, cmd in pairs(cmds) do
       vim.cmd(cmd)
     end
-
-    -- TODO: It would be pretty slick to signal all open nvim instances that
-    -- they should update their colo as well (be careful of infinite loops!!).
-    -- Or at least have a keymap to quickly `:so` the `init.lua` and `tmux
-    -- source ~/.tmux.conf`
-    -- <leader>cs
   end,
 })
+
+-- NOTE: It would be pretty slick to signal other tmux/nvim instances, but I'm
+-- lazy and don't feel like it (and also don't want to deal with infinite loops).
+vim.keymap.set('n', '<leader>cs', function()
+  vim.cmd([[:so ]] .. vim.fn.stdpath 'config' .. '/init.lua')
+  vim.cmd [[:silent !tmux source ~/.tmux.conf]]
+end, { desc = '[C]olo [S]ource (nvim and tmux)' })
 
 -- vim: ts=2 sts=2 sw=2 et
