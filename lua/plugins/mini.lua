@@ -37,11 +37,11 @@ return {
       statusline.section_git = function() end
 
       ---@diagnostic disable-next-line: duplicate-set-field
-      MiniStatusline.section_filename = function(args)
+      statusline.section_filename = function(args)
         -- In terminal always use plain name
         if vim.bo.buftype == 'terminal' then
           return '%t'
-        elseif MiniStatusline.is_truncated(args.trunc_width) then
+        elseif statusline.is_truncated(args.trunc_width) then
           -- File name with 'truncate', 'modified', 'readonly' flags
           -- Use relative path if truncated
           return '%f%m%r'

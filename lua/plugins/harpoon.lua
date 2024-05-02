@@ -5,12 +5,13 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope.nvim',
   },
-  settings = {
-    save_on_toggle = true,
-  },
   init = function()
     local harpoon = require 'harpoon'
-    harpoon:setup()
+    harpoon:setup {
+      settings = {
+        save_on_toggle = true,
+      },
+    }
 
     vim.keymap.set('n', '<leader>a', function()
       harpoon:list():add()

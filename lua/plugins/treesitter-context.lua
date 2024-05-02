@@ -12,7 +12,7 @@ return {
       multiline_threshold = 20,
       trim_scope = 'outer',
       mode = 'cursor',
-      separator = nil,
+      separator = '-',
       zindex = 20,
       -- on_attach = function()
       --   -- vim.cmd 'hi TreesitterContext guibg=NONE'
