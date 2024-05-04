@@ -16,7 +16,6 @@ These items are broadly organized be priority.
   - Or is this an lsp service?
 - Get `zt` working after `<M-i/o>`
 - Git Fugitive?
-- toggle perminant light vs dark modes (tmux too?)
 
 ## Go
 
