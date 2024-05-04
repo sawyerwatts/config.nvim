@@ -17,8 +17,8 @@ vim.keymap.set('x', '<leader>p', '"_dP')
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
 
--- `<C-S-^>` is super obnoxious (thanks WSL), so rebind that.
-vim.keymap.set('n', '<leader>6', '<C-S-6>')
+-- `<C-S-^>` is super obnoxious (thanks, WSL), so rebinding that.
+vim.keymap.set('n', '<M-6>', '<C-S-6>')
 
 -------------------------------------------------------------------------------
 -- Window and Tmux
@@ -36,10 +36,12 @@ vim.keymap.set('n', '<leader>mj', '<cmd>split<cr><C-W><C-W>', { desc = '"Move" 
 vim.keymap.set('n', '<Left>', '<cmd>vertical res -5<CR>', { desc = 'Vertical res -5' })
 vim.keymap.set('n', '<Right>', '<cmd>vertical res +5<CR>', { desc = 'Vertical res +5' })
 
-vim.keymap.set('n', '<leader>co', '<cmd>copen<cr>', { desc = 'Quickfix list open' })
-vim.keymap.set('n', '<leader>cc', '<cmd>cclose<cr>', { desc = 'Quickfix list close' })
-vim.keymap.set('n', '<leader>cd', ':cdo', { desc = 'Quickfix list do' })
-vim.keymap.set('n', '<leader>cf', ':cfdo', { desc = 'Quickfix list file do' })
+vim.keymap.set('n', '<leader>co', '<cmd>copen<cr>', { desc = 'Qui[C]kfix list: [O]pen' })
+vim.keymap.set('n', '<leader>cc', '<cmd>cclose<cr>', { desc = 'Qui[C]kfix list: [C]lose' })
+vim.keymap.set('n', '<leader>cn', '<cmd>cnext<cr>', { desc = 'Qui[C]kfix list: [N]ext' })
+vim.keymap.set('n', '<leader>cp', '<cmd>cprevious<cr>', { desc = 'Qui[C]kfix list: [P]revious' })
+vim.keymap.set('n', '<leader>cd', ':cdo', { desc = 'Qui[C]kfix list: [D]o' })
+vim.keymap.set('n', '<leader>cf', ':cfdo', { desc = 'Qui[C]kfix list: [F]ile do' })
 
 vim.keymap.set('n', '<C-f>', '<cmd> silent !tmux neww ' .. vim.fn.stdpath 'config' .. '/aux/tmux-sessionizer.sh<CR>')
 
@@ -79,7 +81,17 @@ vim.keymap.set('v', '<leader>wb', '<cmd>w !bash<CR>', { desc = '[W]rite selected
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+vim.keymap.set('t', '<M-t>', function()
+  vim.cmd ':e #'
+end, { desc = 'Hide terminal and goto alt file' })
+
 vim.keymap.set('n', '<M-t>', function()
+  local name = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
+  if string.sub(name, 1, 5) == 'term:' then
+    vim.cmd [[:e #]]
+    return
+  end
+
   for _, buf_id in pairs(vim.api.nvim_list_bufs()) do
     local buf_name = 'name: ' .. vim.api.nvim_buf_get_name(buf_id)
     if string.sub(buf_name, 1, string.len 'name: term://') == 'name: term://' then
@@ -88,7 +100,7 @@ vim.keymap.set('n', '<M-t>', function()
     end
   end
   vim.cmd ':term'
-end, { desc = 'Create or open terminal in curr window' })
+end, { desc = "Toggle terminal in curr window (works regardless of term's mode)" })
 
 -- NOTE: Keeping this around just in case, but with Harpoon and <leader>mv and
 -- netrw, these don't seem relevant anymore.

@@ -19,6 +19,19 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   command = [[%s/\s\+$//e]],
 })
 
+-- TODO: Make an autocmd that always enters a terminal in insert mode
+--  You know, I could prob just have <M-t> do this
+-- autocmd BufWinEnter,WinEnter term://* startinsert
+-- vim.api.nvim_create_autocmd('BufWinEnter', {
+--   desc = 'Enter insert mode when a terminal is entered',
+--   group = vim.api.nvim_create_augroup('SawyerBufWinEnter', { clear = true }),
+--   callback = function(event)
+--     -- Upon initilization, the term doesn't have a name yet. If the term can
+--     -- be auto created upon nvim startup, then this wouldn't be a problem.
+--     vim.print('entering buffer of name: ' .. vim.api.nvim_buf_get_name(event.buf))
+--   end,
+-- })
+
 vim.api.nvim_create_autocmd('ColorScheme', {
   desc = 'Save colorscheme to init.lua and source .tmux.config',
   group = vim.api.nvim_create_augroup('SawyerColorScheme', { clear = true }),

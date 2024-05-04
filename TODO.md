@@ -5,6 +5,7 @@ These items are broadly organized be priority.
 - Clean up kickstart notes
 - Rainbow brackets
 - HTTP file syntax and execution, esp envs
+- Have terminals always start in insert mode (see `autocommands.lua` for more)
 - SQL
   - Querying
   - SQL highlighting in non-SQL files
