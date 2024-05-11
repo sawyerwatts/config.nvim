@@ -3,6 +3,8 @@
 These items are broadly organized be priority.
 
 - Clean up kickstart notes
+- Get statusline's LSP integrating w/ however Telescope can view all diags for
+  the whole instance
 - Rainbow brackets
 - HTTP file syntax and execution, esp envs
 - Have terminals always start in insert mode (see `autocommands.lua` for more)
