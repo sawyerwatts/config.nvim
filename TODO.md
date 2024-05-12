@@ -26,4 +26,6 @@ These items are broadly organized be priority.
 - gopls see what interfaces a struct implements
 - Figure out where `err.inn` snippet is coming from
 - If go func has more than 1 param, auto split across many lines
+  - Or just a keybinding to do this
+- Make a snippet for `panic("not implemented") // TODO: this`
 

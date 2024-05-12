@@ -19,6 +19,29 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   command = [[%s/\s\+$//e]],
 })
 
+-- BUG: `vim.cmd [[silent !mkdir -p ]] .. sessions_path` encounters some
+-- weird error. As such, that's done on vim enter.
+local sessions_path = vim.fn.stdpath 'data' .. '/sessions/'
+
+vim.api.nvim_create_autocmd('VimEnter', {
+  desc = 'Ensure sessions dir exists',
+  group = vim.api.nvim_create_augroup('SawyerSessionsDir', { clear = true }),
+  callback = function()
+    vim.cmd([[silent !mkdir -p ]] .. sessions_path)
+  end,
+})
+
+-- TODO: it'd be really slick to only run this iff -S was supplied at startup
+-- NOTE: ~/.bash_aliases should have an alias to perform the session sed/load.
+vim.api.nvim_create_autocmd('VimLeave', {
+  desc = 'Automatically save vim session',
+  group = vim.api.nvim_create_augroup('SawyerSaveSession', { clear = true }),
+  callback = function()
+    local session_name = vim.fn.getcwd():gsub('/', '_')
+    vim.cmd('mksession! ' .. sessions_path .. session_name .. '.vim')
+  end,
+})
+
 -- TODO: Make an autocmd that always enters a terminal in insert mode
 --  You know, I could prob just have <M-t> do this
 -- autocmd BufWinEnter,WinEnter term://* startinsert
