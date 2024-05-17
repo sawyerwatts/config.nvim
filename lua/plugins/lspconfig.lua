@@ -31,7 +31,6 @@ return {
           map('n', 'gco', require('telescope.builtin').lsp_outgoing_calls, '[G]oto [C]alls [O]utgoing')
           map('n', '<leader>cr', vim.lsp.buf.rename, '[C]ode [R]ename')
           map('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-          map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
