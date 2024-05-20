@@ -79,7 +79,14 @@ vim.keymap.set('v', '<leader>wb', '<cmd>w !bash<CR>', { desc = '[W]rite selected
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+vim.keymap.set('n', '<leader>t', function()
+  vim.cmd [[vert term]]
+end, { desc = 'Open new vertical terminal' })
+vim.keymap.set('n', '<leader>T', function()
+  vim.cmd [[horizontal term]]
+end, { desc = 'Open new horizontal terminal' })
 
 vim.keymap.set('t', '<M-t>', function()
   vim.cmd ':e #'

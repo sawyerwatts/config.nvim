@@ -23,6 +23,7 @@ These items are broadly organized be priority.
 
 - cmp snippets for for-range
 - kickstart came with `debug.lua` for go debugging; look into this more
+  - [JT debugger](https://www.youtube.com/watch?v=lyNfnI-B640)
 - Inline types and param names
   - `vim.lsp.inlay_hint.enable()`
 - gopls see what interfaces a struct implements
