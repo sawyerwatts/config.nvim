@@ -15,7 +15,7 @@ Requirements:
     variant
 
 ```sh
-git clone https://github.com/sawyerwatts/config.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone git@github.com:sawyerwatts/config.nvim.git ~/.config/nvim
 ```
 
 Also copy the files from [aux/homeconfigs/](./aux/homeconfigs/) to `~`, and
