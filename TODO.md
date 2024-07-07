@@ -22,6 +22,8 @@ These items are broadly organized be priority.
 ## Go
 
 - cmp snippets for for-range
+- Make a snippet for `panic("not implemented") // TODO: this`
+- make a snippet for `gofunc` to make `go func() { }()`
 - kickstart came with `debug.lua` for go debugging; look into this more
   - [JT debugger](https://www.youtube.com/watch?v=lyNfnI-B640)
 - Inline types and param names
@@ -30,5 +32,4 @@ These items are broadly organized be priority.
 - Figure out where `err.inn` snippet is coming from
 - If go func has more than 1 param, auto split across many lines
   - Or just a keybinding to do this
-- Make a snippet for `panic("not implemented") // TODO: this`
 
