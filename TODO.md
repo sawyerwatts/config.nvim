@@ -2,12 +2,13 @@
 
 These items are broadly organized be priority.
 
+- Figure out why terminal breaks `:scrolloff`
+  - `termenter` and `termleave` could be helpful autocmds
 - Clean up kickstart notes
 - Get statusline's LSP integrating w/ however Telescope can view all diags for
   the whole instance
 - Rainbow brackets
 - HTTP file syntax and execution, esp envs
-- Have terminals always start in insert mode (see `autocommands.lua` for more)
 - SQL
   - Querying: https://www.youtube.com/watch?v=ALGBuFLzDSA
   - SQL highlighting in non-SQL files
@@ -26,6 +27,7 @@ These items are broadly organized be priority.
 - make a snippet for `gofunc` to make `go func() { }()`
 - kickstart came with `debug.lua` for go debugging; look into this more
   - [JT debugger](https://www.youtube.com/watch?v=lyNfnI-B640)
+  - How well does debugger report hanging channels and dead goroutines?
 - Inline types and param names
   - `vim.lsp.inlay_hint.enable()`
 - gopls see what interfaces a struct implements
