@@ -25,9 +25,6 @@ These items are broadly organized be priority.
 - cmp snippets for for-range
 - Make a snippet for `panic("not implemented") // TODO: this`
 - make a snippet for `gofunc` to make `go func() { }()`
-- kickstart came with `debug.lua` for go debugging; look into this more
-  - [JT debugger](https://www.youtube.com/watch?v=lyNfnI-B640)
-  - How well does debugger report hanging channels and dead goroutines?
 - Inline types and param names
   - `vim.lsp.inlay_hint.enable()`
 - gopls see what interfaces a struct implements
