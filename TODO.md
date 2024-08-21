@@ -9,6 +9,7 @@ These items are broadly organized be priority.
   the whole instance
 - Rainbow brackets
 - HTTP file syntax and execution, esp envs
+  - https://github.com/rest-nvim/rest.nvim
 - SQL
   - Querying: https://www.youtube.com/watch?v=ALGBuFLzDSA
   - SQL highlighting in non-SQL files

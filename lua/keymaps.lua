@@ -81,18 +81,18 @@ vim.keymap.set('v', '<leader>wb', '<cmd>w !bash<CR>', { desc = '[W]rite selected
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-vim.keymap.set('n', '<leader>t', function()
+vim.keymap.set('n', '<leader>e', function()
   vim.cmd [[vert term]]
 end, { desc = 'Open new vertical terminal' })
-vim.keymap.set('n', '<leader>T', function()
+vim.keymap.set('n', '<leader>E', function()
   vim.cmd [[horizontal term]]
 end, { desc = 'Open new horizontal terminal' })
 
-vim.keymap.set('t', '<M-t>', function()
+vim.keymap.set('t', '<M-e>', function()
   vim.cmd ':e #'
 end, { desc = 'Hide terminal and goto alt file' })
 
-vim.keymap.set('n', '<M-t>', function()
+vim.keymap.set('n', '<M-e>', function()
   local name = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
   if string.sub(name, 1, 5) == 'term:' then
     vim.cmd [[:e #]]
