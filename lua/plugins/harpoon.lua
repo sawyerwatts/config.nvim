@@ -33,6 +33,18 @@ return {
     vim.keymap.set({ 'n', 't' }, '<M-a>', function()
       harpoon:list():select(4)
     end)
+    vim.keymap.set({ 'n', 't' }, '<M-v>', function()
+      harpoon:list():select(5)
+    end)
+    vim.keymap.set({ 'n', 't' }, '<M-c>', function()
+      harpoon:list():select(6)
+    end)
+    vim.keymap.set({ 'n', 't' }, '<M-x>', function()
+      harpoon:list():select(7)
+    end)
+    vim.keymap.set({ 'n', 't' }, '<M-z>', function()
+      harpoon:list():select(8)
+    end)
 
     -- These might be useful later.
     -- vim.keymap.set({ 'n' }, '<M-h>', function()
