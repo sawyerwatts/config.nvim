@@ -23,7 +23,8 @@ fi
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-session -ds $selected_name -c $selected
+    tmux switch-client -t $selected_name \; send-keys 'htop' C-m \; new-window
+else
+    tmux switch-client -t $selected_name $args
 fi
-
-tmux switch-client -t $selected_name
 
