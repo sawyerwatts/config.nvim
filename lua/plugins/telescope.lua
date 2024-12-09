@@ -54,22 +54,16 @@ return {
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
       require('telescope').setup {
-
-        pickers = {
-          find_files = {
-            theme = 'ivy',
-          },
-        },
-
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
-        defaults = {
-          sorting_strategy = 'ascending',
-          layout_config = {
-            prompt_position = 'top',
-          },
-          -- path_display = 'smart',
-        },
+        -- defaults = {
+        --   sorting_strategy = 'ascending',
+        --   layout_config = {
+        --     prompt_position = 'top',
+        --   },
+        --   -- path_display = 'smart',
+        -- },
+        defaults = require('telescope.themes').get_ivy(),
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
