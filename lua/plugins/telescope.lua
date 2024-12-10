@@ -56,14 +56,13 @@ return {
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
-        -- defaults = {
-        --   sorting_strategy = 'ascending',
-        --   layout_config = {
-        --     prompt_position = 'top',
-        --   },
-        --   -- path_display = 'smart',
-        -- },
-        defaults = require('telescope.themes').get_ivy(),
+        defaults = {
+          sorting_strategy = 'ascending',
+          layout_config = {
+            prompt_position = 'top',
+          },
+          -- path_display = 'smart',
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
