@@ -9,6 +9,7 @@ return {
       keywords = {
         VULN = { icon = ' ', color = 'error', alt = { 'VULNERABILITY', 'VULNERABLE' } },
         BLOCKED = { icon = ' ' },
+        REFACTOR = { icon = ' ', color = 'warning' },
       },
     },
   },
