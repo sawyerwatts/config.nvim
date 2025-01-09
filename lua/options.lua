@@ -54,6 +54,6 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 6
 
 -- Recall that gq{motion} is used to apply this.
-vim.opt.textwidth = 80
+vim.opt.textwidth = 100
 
 -- vim: ts=2 sts=2 sw=2 et
