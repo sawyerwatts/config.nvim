@@ -8,6 +8,8 @@ vim.opt.relativenumber = true
 
 vim.opt.mouse = ''
 
+vim.cmd[[noswapfile]]
+
 vim.opt.tabstop = 4
 vim.opt.smartindent = true
 vim.opt.autoindent = true
