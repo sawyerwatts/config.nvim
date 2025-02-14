@@ -89,9 +89,8 @@ vim.keymap.set('n', '<leader>E', function()
   vim.cmd [[horizontal term]]
 end, { desc = 'Open new horizontal terminal' })
 
--- BUG: I think that using this (on my Fedora box) causes offset or whatever to get unset for the
--- buffer returned to. This also causes the line highlight to be dropped freqly too
 vim.keymap.set('t', '<M-e>', function()
+  vim.cmd [[:stopinsert]]
   vim.cmd ':e #'
 end, { desc = 'Hide terminal and goto alt file' })
 
