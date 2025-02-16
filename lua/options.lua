@@ -8,7 +8,7 @@ vim.opt.relativenumber = true
 
 vim.opt.mouse = ''
 
-vim.cmd[[noswapfile]]
+vim.cmd [[noswapfile]]
 
 vim.opt.tabstop = 4
 vim.opt.smartindent = true
@@ -51,9 +51,11 @@ vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
 
 vim.opt.inccommand = 'split'
 
-vim.opt.cursorline = true
-
-vim.opt.scrolloff = 6
+vim.g.bufferfix = function()
+  vim.opt.cursorline = true
+  vim.opt.scrolloff = 6
+end
+vim.g.bufferfix()
 
 -- Recall that gq{motion} is used to apply this.
 vim.opt.textwidth = 100

@@ -92,6 +92,7 @@ end, { desc = 'Open new horizontal terminal' })
 vim.keymap.set('t', '<M-e>', function()
   vim.cmd [[:stopinsert]]
   vim.cmd ':e #'
+  vim.g.bufferfix()
 end, { desc = 'Hide terminal and goto alt file' })
 
 vim.keymap.set('n', '<M-e>', function()
