@@ -1,0 +1,141 @@
+set nocompatible
+
+" TODO: migrate stuff from nvim configs
+" TODO: review https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md
+" TODO: review https://github.com/JetBrains/ideavim/wiki/set-commands
+
+set number relativenumber
+
+set cursorline
+set scrolloff=6
+set incsearch
+set hlsearch
+
+set mousehide mh
+
+" https://www.youtube.com/watch?v=XA2WjJbmmoM
+
+" You can write your own commands, key mappings, functions, etc, and there is
+" also vimscript as well.
+" :h map.txt
+" https://learnvim.irian.to/customize/vimrc
+" https://learnvim.irian.to/vimscript/vimscript_basic_data_types
+"
+" n is normal mode, i is insert mode, (v)isual and (c)ommand, etc
+" nore means non-recursive (best practice unless desired)
+" map means map
+"
+" Remember, when using commands, you have access to $HOME and stuff
+" When writing snippets, , is a good leader
+
+let mapleader = "\<space>"
+noremap <Leader>/ :noh<CR>
+nnoremap Q <nop>
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+" This (should) paste the current Yank and instead of Yanking the dropped code,
+" throw that text into the void, keeping the prior Yank
+" nnoremap <Leader>p \"_dP
+
+" This will Yank to the system clipboard
+nnoremap <Leader>y \"+y
+vnoremap <Leader>y \"+y
+
+" This (should) delete to the void register
+" nnoremap <Leader>d \"_d
+" vnoremap <Leader>d \"_d
+
+if has('ide')
+    " ---------------------------------------------------------------------------------------------
+    " JetBrains
+    " ---------
+
+    " Additional mapping updates to make at an IDE level. You want as few of
+    " these as possible since JetBrains won't save across OSes or across IDEs.
+    " 1. Configure File Colors for non-solution files to rose
+    " 2. Add the following to your ~/.bashrc
+    "     ridert() {
+    "       touch $1
+    "       rider $1
+    "     }
+    " 3. Settings / Editor Tabs / Appearance / Tab Placement: None
+    " 4. Settings / Editor / General / Appearance
+    "   - Uncheck `Show hard wrap and visual guides`
+    " 5. Remove trailing spaces on
+
+    " ---------------------------------------------------------------------------------------------
+    " .ideavimrc by JetBrains
+    " -----------------------
+
+    " TODO: autocommand: Terminal.Escape executes HideActiveWindow
+
+    " To find action IDs, turn on `IdeaVim: track action Ids`
+    " NOTE: IdeaVim doesn't support nore
+
+    " Recall: vim buffers are JB tabs, vim windows are JB groups, and vim tabs
+    " don't exist.
+
+    set ideajoin
+
+    nmap <Leader>ca <Action>(ShowIntentionActions)
+    " nmap <C-right> <Action>(CodeCompletion)
+
+    nmap <Leader>l <Action>(ShowHarpoon)
+    nmap <Leader>a <Action>(AddToHarpoon)
+    nmap <A-f> <Action>(GotoHarpoon1)
+    nmap <A-d> <Action>(GotoHarpoon2)
+    nmap <A-s> <Action>(GotoHarpoon3)
+    nmap <A-a> <Action>(GotoHarpoon4)
+    nmap <A-v> <Action>(GotoHarpoon5)
+
+    nmap <esc> <Action>(HideActiveWindow)
+
+    nmap <A-e> <Action>(ActivateTerminalToolWindow)
+    nmap <Leader>e <Action>(Terminal.OpenInTerminal)
+    nmap <Leader>w <Action>(Switcher)
+    nmap <Leader>vi <Action>(ActivateProblemsViewToolWindow)
+
+    nmap <Leader><Leader> <Action>(SearchEverywhere)
+    nmap <Leader>sc <Action>(GotoClass)
+    nmap <Leader>st <Action>(TextSearchAction)
+    nmap <Leader>sf <Action>(GotoFile)
+    nmap <Leader>ss <Action>(GotoSymbol)
+    nmap <Leader>sa <Action>(GotoAction)
+    nmap <Leader>bf <Action>(Find)
+    vmap <Leader>bf <Action>(Find)
+    nmap <Leader>br <Action>(Replace)
+    vmap <Leader>br <Action>(Replace)
+
+    " Just learn JetBrains' bindings for debugging/running.
+    " nmap <leader>db <Action>(ToggleLineBreakpoint)
+
+    nmap gr <Action>(FindUsages)
+    vmap gc <Action>(CommentByLineComment)
+
+    nmap <A-j> <C-f>zz
+    nmap <A-k> <C-b>zz
+    vmap <A-j> <C-f>zz
+    vmap <A-k> <C-b>zz
+
+    nmap <A-i> <Action>(MethodDown)
+    nmap <A-o> <Action>(MethodUp)
+    vmap <A-i> <Action>(MethodDown)
+    vmap <A-o> <Action>(MethodUp)
+
+    nmap <Leader>k <Action>(ShowErrorDescription)
+
+    " To see the name of the specific IDE, use :echo &ide
+    if &ide =~? 'JetBrains Rider'
+        nmap <A-;> <Action>(ReSharperGotoNextErrorInSolution)
+        nmap <A-,> <Action>(ReSharperGotoPrevErrorInSolution)
+        nmap gI <Action>(ReSharperGotoImplementation)
+    else
+        nmap <A-;> <Action>(GotoNextError)
+        nmap <A-,> <Action>(GotoPreviousError)
+    endif
+
+endif
