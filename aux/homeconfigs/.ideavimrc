@@ -74,6 +74,7 @@ if has('ide')
     "   - Uncheck `Show hard wrap and visual guides`
     " 5. Remove trailing spaces on
     " G. Add theme Catpuccian, and set to Mocha
+    " 7. Harpoon font size to 15
 
     " ---------------------------------------------------------------------------------------------
     " .ideavimrc by JetBrains
