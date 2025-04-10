@@ -1,8 +1,6 @@
 set nocompatible
-
-" TODO: migrate stuff from nvim configs
-" TODO: review https://github.com/JetBrains/ideavim/blob/master/doc/IdeaVim%20Plugins.md
-" TODO: review https://github.com/JetBrains/ideavim/wiki/set-commands
+set visualbell
+set noerrorbells
 
 set number relativenumber
 
@@ -10,6 +8,8 @@ set cursorline
 set scrolloff=6
 set incsearch
 set hlsearch
+
+set timeoutlen=300
 
 set mousehide mh
 
@@ -29,6 +29,7 @@ set mousehide mh
 " When writing snippets, , is a good leader
 
 let mapleader = "\<space>"
+" The JetBrains section adds a keymap this as well.
 noremap <Leader>/ :noh<CR>
 nnoremap Q <nop>
 
@@ -44,6 +45,12 @@ Plug 'tpope/vim-commentary'
 " This will Yank to the system clipboard
 nnoremap <Leader>y \"+y
 vnoremap <Leader>y \"+y
+" This will Paste from the system clipboard
+nnoremap <Leader>p \"+p
+vnoremap <Leader>p \"+p
+
+" This isn't working? At least not in ideavim
+set mps+='<:>'
 
 " This (should) delete to the void register
 " nnoremap <Leader>d \"_d
@@ -66,6 +73,7 @@ if has('ide')
     " 4. Settings / Editor / General / Appearance
     "   - Uncheck `Show hard wrap and visual guides`
     " 5. Remove trailing spaces on
+    " G. Add theme Catpuccian, and set to Mocha
 
     " ---------------------------------------------------------------------------------------------
     " .ideavimrc by JetBrains
@@ -79,10 +87,16 @@ if has('ide')
     " Recall: vim buffers are JB tabs, vim windows are JB groups, and vim tabs
     " don't exist.
 
+    set ignorecase
+    set smartcase
+
     set ideajoin
 
-    nmap <Leader>ca <Action>(ShowIntentionActions)
-    " nmap <C-right> <Action>(CodeCompletion)
+    nmap <A-6> <C-S-6>
+    nmap <C-h> <C-w><C-h>
+    nmap <C-l> <C-w><C-l>
+    nmap <C-j> <C-w><C-j>
+    nmap <C-k> <C-w><C-k>
 
     nmap <Leader>l <Action>(ShowHarpoon)
     nmap <Leader>a <Action>(AddToHarpoon)
@@ -92,29 +106,35 @@ if has('ide')
     nmap <A-a> <Action>(GotoHarpoon4)
     nmap <A-v> <Action>(GotoHarpoon5)
 
-    nmap <esc> <Action>(HideActiveWindow)
+    nmap <esc> :noh<CR><Action>(HideActiveWindow)
+
+    " No <Leader>ml or <Leader>mj
+    " No vertical res keymaps
+    " No quickfix lists (rip)
+    " No C-f for tmux sessionizer (yet?)
+    " No netrw
+    " (Currently) no CSV Rainbow equivalent installed+configured
+
+    nmap <Leader>f <Action>(ReformatCode)
 
     nmap <A-e> <Action>(ActivateTerminalToolWindow)
     nmap <Leader>e <Action>(Terminal.OpenInTerminal)
     nmap <Leader>w <Action>(Switcher)
-    nmap <Leader>vi <Action>(ActivateProblemsViewToolWindow)
 
     nmap <Leader><Leader> <Action>(SearchEverywhere)
-    nmap <Leader>sc <Action>(GotoClass)
-    nmap <Leader>st <Action>(TextSearchAction)
     nmap <Leader>sf <Action>(GotoFile)
     nmap <Leader>ss <Action>(GotoSymbol)
     nmap <Leader>sa <Action>(GotoAction)
-    nmap <Leader>bf <Action>(Find)
-    vmap <Leader>bf <Action>(Find)
-    nmap <Leader>br <Action>(Replace)
-    vmap <Leader>br <Action>(Replace)
+    nmap <Leader>sg <Action>(TextSearchAction)
+    nmap <Leader>sc <Action>(GotoClass)
 
-    " Just learn JetBrains' bindings for debugging/running.
-    " nmap <leader>db <Action>(ToggleLineBreakpoint)
+    nmap <leader>ds <Action>(ActivateStructureToolWindow)
+    nmap <Leader>sd <Action>(ActivateProblemsViewToolWindow)
+    nmap <Leader>st <Action>(ActivateTODOToolWindow)
+    nmap <Leader>n <Action>(ActivateProjectToolWindow)
 
-    nmap gr <Action>(FindUsages)
-    vmap gc <Action>(CommentByLineComment)
+    nmap <Leader>/ <Action>(Replace)
+    vmap <Leader>/ <Action>(Replace)
 
     nmap <A-j> <C-f>zz
     nmap <A-k> <C-b>zz
@@ -126,13 +146,31 @@ if has('ide')
     vmap <A-i> <Action>(MethodDown)
     vmap <A-o> <Action>(MethodUp)
 
+    nmap <leader>b <Action>(ToggleLineBreakpoint)
+    nmap <leader>B <Action>(AddConditionalBreakpoint)
+    " TODO: func keys for debug/run opts?
+    " vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
+    " vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
+    " vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
+    " vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
+
     nmap <Leader>k <Action>(ShowErrorDescription)
+
+    " nmap <C-right> <Action>(CodeCompletion)
+    nmap gd <Action>(GotoTypeDeclaration)
+    nmap gD <Action>(GotoTypeDeclaration)
+    nmap gr <Action>(FindUsages)
+    nmap cr <Action>(RenameElement)
+    vmap gc <Action>(CommentByLineComment)
+    nmap <Leader>ca <Action>(ShowIntentionActions)
 
     " To see the name of the specific IDE, use :echo &ide
     if &ide =~? 'JetBrains Rider'
         nmap <A-;> <Action>(ReSharperGotoNextErrorInSolution)
         nmap <A-,> <Action>(ReSharperGotoPrevErrorInSolution)
         nmap gI <Action>(ReSharperGotoImplementation)
+        nmap gci <Action>(RiderShowIncomingCalls)
+        nmap gco <Action>(RiderShowOutgoingCalls)
     else
         nmap <A-;> <Action>(GotoNextError)
         nmap <A-,> <Action>(GotoPreviousError)
