@@ -158,7 +158,7 @@ if has('ide')
     nmap <Leader>k <Action>(ShowErrorDescription)
 
     " nmap <C-right> <Action>(CodeCompletion)
-    nmap gd <Action>(GotoTypeDeclaration)
+    nmap gd <Action>(GotoDeclaration)
     nmap gD <Action>(GotoTypeDeclaration)
     nmap gr <Action>(FindUsages)
     nmap cr <Action>(RenameElement)
