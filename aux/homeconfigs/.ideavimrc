@@ -161,8 +161,8 @@ if has('ide')
     nmap gd <Action>(GotoDeclaration)
     nmap gD <Action>(GotoTypeDeclaration)
     nmap gr <Action>(FindUsages)
-    nmap cr <Action>(RenameElement)
     vmap gc <Action>(CommentByLineComment)
+    nmap <Leader>cr <Action>(RenameElement)
     nmap <Leader>ca <Action>(ShowIntentionActions)
 
     " To see the name of the specific IDE, use :echo &ide
