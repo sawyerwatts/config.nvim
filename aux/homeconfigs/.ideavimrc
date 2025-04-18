@@ -74,6 +74,7 @@ if has('ide')
     "   - Uncheck `Show hard wrap and visual guides`
     " 5. Remove trailing spaces on
     " G. Add theme Catpuccian, and set to Mocha
+    "   Or set to Rider Night + Rider Day
     " 7. Keymaps: change Insert Inline Proposal from tab to enter
     " 8. Keymaps: change Choose Lookup Item from enter to tab
 
@@ -121,8 +122,8 @@ if has('ide')
     nmap <Leader>f <Action>(ReformatCode)
 
     nmap <A-e> <Action>(ActivateTerminalToolWindow)
-    nmap <Leader>e <Action>(Terminal.OpenInTerminal)
-    nmap <Leader>w <Action>(Switcher)
+    nmap <Leader>w <Action>(Terminal.OpenInTerminal)
+    nmap <Leader>e <Action>(Switcher)
 
     nmap <Leader><Leader> <Action>(SearchEverywhere)
     nmap <Leader>sf <Action>(GotoFile)
@@ -157,14 +158,17 @@ if has('ide')
     " vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
     " vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
 
+    imap <A-l> <Action>(CodeCompletion)
+    imap <A-j> <Action>(EditorDown)
+    imap <A-k> <Action>(EditorUp)
     nmap <Leader>k <Action>(ShowErrorDescription)
 
-    " nmap <C-right> <Action>(CodeCompletion)
     nmap gd <Action>(GotoDeclaration)
     nmap gD <Action>(GotoTypeDeclaration)
     nmap gr <Action>(FindUsages)
     vmap gc <Action>(CommentByLineComment)
     nmap <Leader>ca <Action>(ShowIntentionActions)
+    vmap <Leader>ca <Action>(ShowIntentionActions)
     nmap <Leader>cr <Action>(RenameElement)
 
     nmap <Leader>rb <Action>(BuildWholeSolutionAction)
@@ -180,7 +184,7 @@ if has('ide')
         nmap gI <Action>(ReSharperGotoImplementation)
         nmap gci <Action>(RiderShowIncomingCalls)
         nmap gco <Action>(RiderShowOutgoingCalls)
-        nmap <Leader>ru <Action>(RiderUnitTestRunSolutionTwAction)
+        nmap <Leader>ru <Action>(RiderUnitTestRunSolutionAction)
     else
         nmap <A-;> <Action>(GotoNextError)
         nmap <A-,> <Action>(GotoPreviousError)
