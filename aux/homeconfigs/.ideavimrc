@@ -74,7 +74,8 @@ if has('ide')
     "   - Uncheck `Show hard wrap and visual guides`
     " 5. Remove trailing spaces on
     " G. Add theme Catpuccian, and set to Mocha
-    " 7. Harpoon font size to 15
+    " 7. Keymaps: change Insert Inline Proposal from tab to enter
+    " 8. Keymaps: change Choose Lookup Item from enter to tab
 
     " ---------------------------------------------------------------------------------------------
     " .ideavimrc by JetBrains
@@ -108,6 +109,7 @@ if has('ide')
     nmap <A-v> <Action>(GotoHarpoon5)
 
     nmap <esc> :noh<CR><Action>(HideActiveWindow)
+    nmap <Leader><esc> <Action>(HideAllWindows)
 
     " No <Leader>ml or <Leader>mj
     " No vertical res keymaps
@@ -162,8 +164,14 @@ if has('ide')
     nmap gD <Action>(GotoTypeDeclaration)
     nmap gr <Action>(FindUsages)
     vmap gc <Action>(CommentByLineComment)
-    nmap <Leader>cr <Action>(RenameElement)
     nmap <Leader>ca <Action>(ShowIntentionActions)
+    nmap <Leader>cr <Action>(RenameElement)
+
+    nmap <Leader>rb <Action>(BuildWholeSolutionAction)
+    nmap <Leader>rr <Action>(Run)
+    nmap <Leader>rs <Action>(Stop)
+    nmap <Leader>rd <Action>(Debug)
+    " There's a <Leader>ru keymap in rider to run unit tests
 
     " To see the name of the specific IDE, use :echo &ide
     if &ide =~? 'JetBrains Rider'
@@ -172,6 +180,7 @@ if has('ide')
         nmap gI <Action>(ReSharperGotoImplementation)
         nmap gci <Action>(RiderShowIncomingCalls)
         nmap gco <Action>(RiderShowOutgoingCalls)
+        nmap <Leader>ru <Action>(RiderUnitTestRunSolutionTwAction)
     else
         nmap <A-;> <Action>(GotoNextError)
         nmap <A-,> <Action>(GotoPreviousError)
