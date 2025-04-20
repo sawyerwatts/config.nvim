@@ -175,7 +175,7 @@ if has('ide')
     nmap <Leader>rr <Action>(Run)
     nmap <Leader>rs <Action>(Stop)
     nmap <Leader>rd <Action>(Debug)
-    " There's a <Leader>ru keymap in rider to run unit tests
+    " There's a <Leader>rt keymap in rider to run unit tests
 
     " To see the name of the specific IDE, use :echo &ide
     if &ide =~? 'JetBrains Rider'
@@ -184,7 +184,7 @@ if has('ide')
         nmap gI <Action>(ReSharperGotoImplementation)
         nmap gci <Action>(RiderShowIncomingCalls)
         nmap gco <Action>(RiderShowOutgoingCalls)
-        nmap <Leader>ru <Action>(RiderUnitTestRunSolutionAction)
+        nmap <Leader>rt <Action>(RiderUnitTestRunSolutionAction)
     else
         nmap <A-;> <Action>(GotoNextError)
         nmap <A-,> <Action>(GotoPreviousError)
