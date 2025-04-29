@@ -122,8 +122,8 @@ if has('ide')
     nmap <Leader>f <Action>(ReformatCode)
 
     nmap <A-e> <Action>(ActivateTerminalToolWindow)
-    nmap <Leader>w <Action>(Terminal.OpenInTerminal)
-    nmap <Leader>e <Action>(Switcher)
+    nmap <Leader>e <Action>(Terminal.OpenInTerminal)
+    nmap <Leader>w <Action>(Switcher)
 
     nmap <Leader><Leader> <Action>(SearchEverywhere)
     nmap <Leader>sf <Action>(GotoFile)
