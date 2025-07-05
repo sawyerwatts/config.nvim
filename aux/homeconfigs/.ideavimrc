@@ -78,6 +78,7 @@ if has('ide')
     " 7. Keymaps: change Insert Inline Proposal from tab to enter
     " 8. Keymaps: change Choose Lookup Item from enter to tab
     " 9. Move breadcrumbs to bottom
+    " 10. Install Harpooner plugin
 
     " ---------------------------------------------------------------------------------------------
     " .ideavimrc by JetBrains
@@ -102,13 +103,23 @@ if has('ide')
     nmap <C-j> <C-w><C-j>
     nmap <C-k> <C-w><C-k>
 
-    nmap <Leader>l <Action>(ShowHarpoon)
-    nmap <Leader>a <Action>(AddToHarpoon)
-    nmap <A-f> <Action>(GotoHarpoon1)
-    nmap <A-d> <Action>(GotoHarpoon2)
-    nmap <A-s> <Action>(GotoHarpoon3)
-    nmap <A-a> <Action>(GotoHarpoon4)
-    nmap <A-v> <Action>(GotoHarpoon5)
+    " HarpoonIJ; it got broke at one point
+    "nmap <Leader>l <Action>(ShowHarpoon)
+    "nmap <Leader>a <Action>(AddToHarpoon)
+    "nmap <A-f> <Action>(GotoHarpoon1)
+    "nmap <A-d> <Action>(GotoHarpoon2)
+    "nmap <A-s> <Action>(GotoHarpoon3)
+    "nmap <A-a> <Action>(GotoHarpoon4)
+    "nmap <A-v> <Action>(GotoHarpoon5)
+
+    " Harpooner
+    nmap <leader>l <action>(HarpoonerToggleQuickMenu)
+    nmap <leader>a <action>(HarpoonerToggleFile)
+    nmap <A-f> <action>(HarpoonerOpenFile0)
+    nmap <A-d> <action>(HarpoonerOpenFile1)
+    nmap <A-s> <action>(HarpoonerOpenFile2)
+    nmap <A-a> <action>(HarpoonerOpenFile3)
+    nmap <leader>hc <action>(HarpoonerClearMenu)
 
     nmap <esc> :noh<CR><Action>(HideActiveWindow)
     nmap <Leader><esc> <Action>(HideAllWindows)
