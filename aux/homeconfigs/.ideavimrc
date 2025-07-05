@@ -74,7 +74,7 @@ if has('ide')
     "   - Uncheck `Show hard wrap and visual guides`
     " 5. Remove trailing spaces on
     " G. Add theme Catpuccian, and set to Mocha
-    "   Or set to Rider Night + Rider Day
+    "   Or set to Rider Night, Rider Day, or Reshaper Day
     " 7. Keymaps: change Insert Inline Proposal from tab to enter
     " 8. Keymaps: change Choose Lookup Item from enter to tab
     " 9. Move breadcrumbs to bottom
