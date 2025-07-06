@@ -78,7 +78,8 @@ if has('ide')
     " 7. Keymaps: change Insert Inline Proposal from tab to enter
     " 8. Keymaps: change Choose Lookup Item from enter to tab
     " 9. Move breadcrumbs to bottom
-    " 10. Install Harpooner plugin
+    " 10. Install Harpooner plugin, and configure settings
+    " 11. Disable: File | Settings | Editor | General | Code Folding | Fold by default | .NET | Preprocessor Regions
 
     " ---------------------------------------------------------------------------------------------
     " .ideavimrc by JetBrains
