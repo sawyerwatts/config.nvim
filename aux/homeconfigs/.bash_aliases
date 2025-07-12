@@ -16,3 +16,10 @@ alias tmuxa='tmux a'
 
 alias treecs='tree -I bin -I obj -I Logs'
 
+alias rs='rider-sessionizer.sh'
+
+ridert() {
+		touch $1
+		rider $1
+}
+
