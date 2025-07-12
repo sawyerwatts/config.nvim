@@ -128,7 +128,9 @@ if has('ide')
     " No <Leader>ml or <Leader>mj
     " No vertical res keymaps
     " No quickfix lists (rip)
-    " No C-f for tmux sessionizer (yet?)
+    " No C-f for tmux sessionizer, even tho rider-sessionizer exists, because I'm not seeing how
+    "       to have Rider open a terminal and enter text, and because <cmd>! isn't an appropriate
+    "       ioctl device to do that
     " No netrw
     " (Currently) no CSV Rainbow equivalent installed+configured
 
