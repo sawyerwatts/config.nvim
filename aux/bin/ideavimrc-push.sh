@@ -15,5 +15,5 @@ git add "$save_path"
 git commit -m "Update ideavimrc"
 git pull
 git push
-echo "Pushed .ideavimrc"
+git status
 
