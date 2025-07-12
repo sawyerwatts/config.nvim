@@ -78,7 +78,7 @@ if has('ide')
     " 7. Disable plugin 'Full LIne Code completion` and update keymaps to change Insert Inline Proposal from tab to enter
     " 8. Keymaps: change Choose Lookup Item from enter to tab
     " 9. Move breadcrumbs to bottom
-    " 10. Install Harpooner plugin, and configure settings
+    " 10. Install Harpooner plugin (or try HarpoonIJ again), and configure settings
     " 11. Disable: File | Settings | Editor | General | Code Folding | Fold by default | .NET | Preprocessor Regions
 
     " ---------------------------------------------------------------------------------------------
@@ -189,6 +189,8 @@ if has('ide')
     nmap <Leader>rs <Action>(Stop)
     nmap <Leader>rd <Action>(Debug)
     " There's a <Leader>rt keymap in rider to run unit tests
+
+    nmap <Leader>sn :!rider ~/.ideavimrc<CR>
 
     " To see the name of the specific IDE, use :echo &ide
     if &ide =~? 'JetBrains Rider'
