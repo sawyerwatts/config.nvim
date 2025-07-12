@@ -75,7 +75,7 @@ if has('ide')
     " 5. Remove trailing spaces on
     " G. Add theme Catpuccian, and set to Mocha
     "   Or set to Rider Night, Rider Day, or Reshaper Day
-    " 7. Keymaps: change Insert Inline Proposal from tab to enter
+    " 7. Disable plugin 'Full LIne Code completion` and update keymaps to change Insert Inline Proposal from tab to enter
     " 8. Keymaps: change Choose Lookup Item from enter to tab
     " 9. Move breadcrumbs to bottom
     " 10. Install Harpooner plugin, and configure settings
