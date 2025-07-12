@@ -6,7 +6,7 @@ IFS=$'\n\t'
 # particularly helpful if you need to source a script that violates any of these
 # `set`s.
 
-nvim_root=~/.config/nvim
+nvim_root=$HOME/.config/nvim
 save_path=$nvim_root/aux/homeconfigs/
 
 cp ~/.ideavimrc "$save_path"
