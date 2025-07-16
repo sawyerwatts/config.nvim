@@ -6,7 +6,7 @@ if [[ $# -eq 1 ]]
 then
     selected=$1
 else
-    selected=$(find "$repos_dir" -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find "$REPOS_DIR" -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]
@@ -16,8 +16,8 @@ fi
 
 if [ -f "$selected/*.sln" ]
 then
-    bash -c "$rider_bin $selected/*.sln"
+    bash -c "$RIDER_BIN $selected/*.sln"
 else
-    bash -c "$rider_bin $selected"
+    bash -c "$RIDER_BIN $selected"
 fi
 
