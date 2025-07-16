@@ -14,15 +14,18 @@ Requirements:
     `~/.local/share/fonts` and adjust the terminal to use that font's Mono
     variant
 
-```sh
-git clone git@github.com:sawyerwatts/config.nvim.git ~/.config/nvim
-```
+1. Clone this repo
 
-Also copy the files from [homeconfigs/](./homeconfigs/) to `~`, and
+  ```sh
+  git clone git@github.com:sawyerwatts/config.nvim.git ~/.config/nvim
+  ```
+
+2. Copy the files from [homeconfigs/](./homeconfigs/) to `~`, and
 check those files to see if they have any other setup instructions.
 
-Also also add [./bin/](./bin/) to the `PATH`:
-`export PATH=$PATH:~/.config/nvim/bin`
+3. Add [./bin/](./bin/) to the `PATH`: `export PATH=$PATH:~/.config/nvim/bin`
+
+4. Update [./bin/.env](./bin/.env) to use appropriate values for the local environment.
 
 ## Note on multiple installs
 
