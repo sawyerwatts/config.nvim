@@ -7,11 +7,13 @@ IFS=$'\n\t'
 # `set`s.
 
 nvim_root=$HOME/.config/nvim
-save_path=$nvim_root/aux/homeconfigs/
+save_path=$nvim_root/homeconfigs/
 
+cp ~/.ideavimrc "$save_path"
 cd "$nvim_root"
+git add "$save_path"
+git commit -m "Update ideavimrc"
 git pull
-
-cp "$save_path/.ideavimrc" ~
-echo "Pulled .ideavimrc"
+git push
+git status
 

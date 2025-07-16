@@ -18,11 +18,11 @@ Requirements:
 git clone git@github.com:sawyerwatts/config.nvim.git ~/.config/nvim
 ```
 
-Also copy the files from [aux/homeconfigs/](./aux/homeconfigs/) to `~`, and
+Also copy the files from [homeconfigs/](./homeconfigs/) to `~`, and
 check those files to see if they have any other setup instructions.
 
-Also also add [./aux/bin/](./aux/bin/) to the `PATH`:
-`export PATH=$PATH:~/.config/nvim/aux/bin`
+Also also add [./bin/](./bin/) to the `PATH`:
+`export PATH=$PATH:~/.config/nvim/bin`
 
 ## Note on multiple installs
 

@@ -44,7 +44,7 @@ vim.keymap.set('n', '<leader>cp', '<cmd>cprevious<cr>', { desc = 'Qui[C]kfix lis
 vim.keymap.set('n', '<leader>cd', ':cdo', { desc = 'Qui[C]kfix list: [D]o' })
 vim.keymap.set('n', '<leader>cf', ':cfdo', { desc = 'Qui[C]kfix list: [F]ile do' })
 
-vim.keymap.set('n', '<C-f>', '<cmd> silent !tmux neww ' .. vim.fn.stdpath 'config' .. '/aux/bin/tmux-sessionizer.sh<CR>')
+vim.keymap.set('n', '<C-f>', '<cmd> silent !tmux neww ' .. vim.fn.stdpath 'config' .. '/bin/tmux-sessionizer.sh<CR>')
 
 -------------------------------------------------------------------------------
 -- netrw
