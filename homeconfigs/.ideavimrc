@@ -193,6 +193,7 @@ if has('ide')
     " There's a <Leader>rt keymap in rider to run unit tests
 
     nmap <Leader>oi :e ~/.ideavimrc<CR>
+    " This mapping really likes being inconsistent, and loves breaking on Windows.
     nmap <Leader>ods :!rider-dotnet-secrets-open.sh<CR>:echo ''
 
     " To see the name of the specific IDE, use :echo &ide
