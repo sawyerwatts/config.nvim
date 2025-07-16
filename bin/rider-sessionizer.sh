@@ -1,19 +1,23 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-if [[ $# -eq 1 ]]; then
+source $(dirname "$0")/.env
+
+if [[ $# -eq 1 ]]
+then
     selected=$1
 else
-    selected=$(find ~/Code -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find "$repos_dir" -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
-if [[ -z $selected ]]; then
+if [[ -z $selected ]]
+then
     exit 0
 fi
 
 if [ -f "$selected/*.sln" ]
 then
-    rider "$selected/*.sln" &
+    bash -c "$rider_bin $selected/*.sln"
 else
-    rider "$selected" &
+    bash -c "$rider_bin $selected"
 fi
 

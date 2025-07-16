@@ -1,15 +1,17 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Thank you, @ThePrimeagen, for the original version.
 #   https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
 
-if [[ $# -eq 1 ]]; then
+if [[ $# -eq 1 ]]
+then
     selected=$1
 else
     selected=$(find ~/Code -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
-if [[ -z $selected ]]; then
+if [[ -z $selected ]]
+then
     exit 0
 fi
 
