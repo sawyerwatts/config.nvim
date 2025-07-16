@@ -64,11 +64,7 @@ if has('ide')
     " Additional mapping updates to make at an IDE level. You want as few of
     " these as possible since JetBrains won't save across OSes or across IDEs.
     " 1. Configure File Colors for non-solution files to rose
-    " 2. Add the following to your ~/.bashrc
-    "     ridert() {
-    "       touch $1
-    "       rider $1
-    "     }
+    " 2. Make sure Sawyer's config.nvim is cloned and configured, it has lotsa helper utils
     " 3. Settings / Editor Tabs / Appearance / Tab Placement: None
     " 4. Settings / Editor / General / Appearance
     "   - Uncheck `Show hard wrap and visual guides`
