@@ -7,7 +7,7 @@ IFS=$'\n\t'
 # `set`s.
 # BUG: If multiple csprojs have secrets, this will only open one of them.
 
-source $(dirname "$0")/.env
+source "$(dirname "$0")/.env"
 
 secrets_path="$DOTNET_USER_SECRETS_BASE_PATH/$(find . -name "*.csproj" -exec grep UserSecretsId {} \; | cut -d'>' -f2 | cut -d'<' -f1 | sort | head -1)/secrets.json"
 if [[ "$secrets_path" == "$DOTNET_USER_SECRETS_BASE_PATH//secrets.json" ]]
