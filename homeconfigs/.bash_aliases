@@ -24,7 +24,7 @@ alias treecs='tree -I bin -I obj -I Logs'
 alias rider="/c/Program\ Files/JetBrains/JetBrains\ Rider\ 2024.2.7/bin/rider64.exe"
 
 alias rs='rider-sessionizer.sh'
-alias rdso='rider-dotnet-secrets-open.sh'
+alias rds='rider-dotnet-secrets.sh'
 
 ridert() {
 		touch $1
