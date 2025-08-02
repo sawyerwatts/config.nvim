@@ -76,6 +76,7 @@ if has('ide')
     " 9. Move breadcrumbs to bottom
     " 10. Install Harpooner plugin (or try HarpoonIJ again), and configure settings
     " 11. Disable: File | Settings | Editor | General | Code Folding | Fold by default | .NET | Preprocessor Regions
+    " 12. Install Allocation Heap Viewer by Alex S
 
     " ---------------------------------------------------------------------------------------------
     " .ideavimrc by JetBrains
