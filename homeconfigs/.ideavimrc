@@ -63,18 +63,19 @@ if has('ide')
 
     " Additional mapping updates to make at an IDE level. You want as few of
     " these as possible since JetBrains won't save across OSes or across IDEs.
+    " 0. Set font size to 12 and line spacing to 1.0
     " 1. Configure File Colors for non-solution files to rose
     " 2. Make sure Sawyer's config.nvim is cloned and configured, it has lotsa helper utils
     " 3. Settings / Editor Tabs / Appearance / Tab Placement: None
     " 4. Settings / Editor / General / Appearance
     "   - Uncheck `Show hard wrap and visual guides`
     " 5. Remove trailing spaces on
-    " G. Add theme Catpuccian, and set to Mocha
+    " 6. Add theme Catpuccian, and set to Mocha
     "   Or set to Rider Night, Rider Day, or Reshaper Day
     " 7. Disable plugin 'Full LIne Code completion` and update keymaps to change Insert Inline Proposal from tab to enter
     " 8. Keymaps: change Choose Lookup Item from enter to tab
     " 9. Move breadcrumbs to bottom
-    " 10. Install Harpooner plugin (or try HarpoonIJ again), and configure settings
+    " 10. Install Harpooner plugin (or try HarpoonIJ again), and configure settings (font size to 15)
     " 11. Disable: File | Settings | Editor | General | Code Folding | Fold by default | .NET | Preprocessor Regions
     " 12. Install Allocation Heap Viewer by Alex S
 
@@ -102,22 +103,22 @@ if has('ide')
     nmap <C-k> <C-w><C-k>
 
     " HarpoonIJ; it got broke at one point
-    "nmap <Leader>l <Action>(ShowHarpoon)
-    "nmap <Leader>a <Action>(AddToHarpoon)
-    "nmap <A-f> <Action>(GotoHarpoon1)
-    "nmap <A-d> <Action>(GotoHarpoon2)
-    "nmap <A-s> <Action>(GotoHarpoon3)
-    "nmap <A-a> <Action>(GotoHarpoon4)
-    "nmap <A-v> <Action>(GotoHarpoon5)
+    nmap <Leader>l <Action>(ShowHarpoon)
+    nmap <Leader>a <Action>(AddToHarpoon)
+    nmap <A-f> <Action>(GotoHarpoon1)
+    nmap <A-d> <Action>(GotoHarpoon2)
+    nmap <A-s> <Action>(GotoHarpoon3)
+    nmap <A-a> <Action>(GotoHarpoon4)
+    nmap <A-v> <Action>(GotoHarpoon5)
 
     " Harpooner
-    nmap <leader>l <action>(HarpoonerToggleQuickMenu)
-    nmap <leader>a <action>(HarpoonerToggleFile)
-    nmap <A-f> <action>(HarpoonerOpenFile0)
-    nmap <A-d> <action>(HarpoonerOpenFile1)
-    nmap <A-s> <action>(HarpoonerOpenFile2)
-    nmap <A-a> <action>(HarpoonerOpenFile3)
-    nmap <leader>hc <action>(HarpoonerClearMenu)
+    "nmap <leader>l <action>(HarpoonerToggleQuickMenu)
+    "nmap <leader>a <action>(HarpoonerToggleFile)
+    "nmap <A-f> <action>(HarpoonerOpenFile0)
+    "nmap <A-d> <action>(HarpoonerOpenFile1)
+    "nmap <A-s> <action>(HarpoonerOpenFile2)
+    "nmap <A-a> <action>(HarpoonerOpenFile3)
+    "nmap <leader>hc <action>(HarpoonerClearMenu)
 
     nmap <esc> :noh<CR><Action>(HideActiveWindow)
     nmap <Leader><esc> <Action>(HideAllWindows)
