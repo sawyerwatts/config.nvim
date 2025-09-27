@@ -9,6 +9,13 @@ IFS=$'\n\t'
 
 source "$(dirname "$0")/.env"
 
+editor=${1:-}
+if [[ -z "$editor" ]]
+then
+    echo "usage: dotnet-secrets.sh EDITOR"
+    exit 1
+fi
+
 secrets_path="$DOTNET_USER_SECRETS_BASE_PATH/$(find . -name "*.csproj" -exec grep UserSecretsId {} \; | cut -d'>' -f2 | cut -d'<' -f1 | sort | head -1)/secrets.json"
 if [[ "$secrets_path" == "$DOTNET_USER_SECRETS_BASE_PATH//secrets.json" ]]
 then
@@ -22,5 +29,5 @@ then
     echo -e "{\n}" > "$secrets_path"
 fi
 
-bash -c "$RIDER_BIN $secrets_path"
+bash -c "$editor $secrets_path"
 

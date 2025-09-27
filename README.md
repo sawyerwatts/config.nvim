@@ -22,6 +22,7 @@ Requirements:
 
 2. Copy the files from [homeconfigs/](./homeconfigs/) to `~`, and
 check those files to see if they have any other setup instructions.
+  - Note that `.tmux.conf` details extra setup steps if you wanna use `tmux`.
 
 3. Add [./bin/](./bin/) to the `PATH`: `export PATH=$PATH:~/.config/nvim/bin`
 
