@@ -141,7 +141,7 @@ return {
         -- TODO: set up go
         --    https://github.com/golang/tools/blob/master/gopls/doc/vim.md
         --    https://github.com/golang/tools/blob/master/gopls/doc/inlayHints.md
-        gopls = {},
+        -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs

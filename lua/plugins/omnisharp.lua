@@ -33,7 +33,7 @@ OmniSharp will need to find that in the runtime. Sometimes, there is a
 contains `/usr/share/dotnet/host/fxr/6.0.30/libhostfxr.so`).
 
     --]]
-    local omnisharp_bin = '/home/swatts/.cache/omnisharp-vim/omnisharp-roslyn/OmniSharp'
+    local omnisharp_bin = '/home/sawyer/.cache/omnisharp-vim/omnisharp-roslyn/OmniSharp'
 
     local pid = vim.fn.getpid()
     require('lspconfig').omnisharp.setup {
