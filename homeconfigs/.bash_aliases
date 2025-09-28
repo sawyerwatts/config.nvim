@@ -22,8 +22,7 @@ alias treecs='tree -I bin -I obj -I Logs'
 # .NET/Rider
 ############
 
-# TODO: make sure this is correct for your installed version.
-alias rider="/c/Program\ Files/JetBrains/JetBrains\ Rider\ 2024.2.7/bin/rider64.exe"
+alias rider="$RIDER_BIN"
 
 alias rs='rider-sessionizer.sh'
 
