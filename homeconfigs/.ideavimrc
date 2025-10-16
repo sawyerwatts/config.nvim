@@ -33,11 +33,6 @@ let mapleader = "\<space>"
 noremap <Leader>/ :noh<CR>
 nnoremap Q <nop>
 
-" Highlight copied text
-Plug 'machakann/vim-highlightedyank'
-" Commentary plugin
-Plug 'tpope/vim-commentary'
-
 " This (should) paste the current Yank and instead of Yanking the dropped code,
 " throw that text into the void, keeping the prior Yank
 " nnoremap <Leader>p \"_dP
@@ -48,9 +43,6 @@ vnoremap <Leader>y \"+y
 " This will Paste from the system clipboard
 nnoremap <Leader>p \"+p
 vnoremap <Leader>p \"+p
-
-" This isn't working? At least not in ideavim
-set mps+='<:>'
 
 " This (should) delete to the void register
 " nnoremap <Leader>d \"_d
@@ -90,6 +82,11 @@ if has('ide')
 
     " Recall: vim buffers are JB tabs, vim windows are JB groups, and vim tabs
     " don't exist.
+
+    " Highlight copied text
+    Plug 'machakann/vim-highlightedyank'
+    " Commentary plugin
+    Plug 'tpope/vim-commentary'
 
     set ignorecase
     set smartcase
