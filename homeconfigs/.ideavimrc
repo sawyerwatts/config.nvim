@@ -56,7 +56,7 @@ if has('ide')
     " Additional mapping updates to make at an IDE level. You want as few of
     " these as possible since JetBrains won't save across OSes or across IDEs.
     " 0. Set font size to 12 or 13, and line spacing to 1.0
-    " 1. Configure File Colors for non-solution files to rose
+    " 1. Configure File Colors for non-solution files to Violet (when using Islands) else Rose
     " 2. Make sure Sawyer's config.nvim is cloned and configured, it has lotsa helper utils
     " 3. Settings / Editor Tabs / Appearance / Tab Placement: None
     " 4. Settings / Editor / General / Appearance
