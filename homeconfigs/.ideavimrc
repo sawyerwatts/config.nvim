@@ -70,6 +70,7 @@ if has('ide')
     " 10. Install Harpooner plugin (or try HarpoonIJ again), and configure settings (font size to 15)
     " 11. Disable: File | Settings | Editor | General | Code Folding | Fold by default | .NET | Preprocessor Regions
     " 12. Install Allocation Heap Viewer by Alex S
+    " 13. Set 'Remove Trailing Spaces On' to 'All Lines'
 
     " ---------------------------------------------------------------------------------------------
     " .ideavimrc by JetBrains
