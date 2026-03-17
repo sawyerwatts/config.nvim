@@ -61,16 +61,15 @@ if has('ide')
     " 3. Settings / Editor Tabs / Appearance / Tab Placement: None
     " 4. Settings / Editor / General / Appearance
     "   - Uncheck `Show hard wrap and visual guides`
-    " 5. Remove trailing spaces on
+    " 5. Set 'Remove Trailing Spaces On' to 'All Lines'
     " 6. Add theme Catpuccian, and set to Mocha
-    "   Or set to Rider Night, Rider Day, or Reshaper Day
-    " 7. Disable plugin 'Full LIne Code completion` and update keymaps to change Insert Inline Proposal from tab to enter
+    "   Or set to Islands Dark/Light, Rider Night/Day, or Reshaper Day
+    " 7. Disable plugin 'Full Line Code completion' and update keymaps to change 'Insert Inline Proposal' from tab to enter
     " 8. Keymaps: change Choose Lookup Item from enter to tab
     " 9. Move breadcrumbs to bottom
     " 10. Install Harpooner plugin (or try HarpoonIJ again), and configure settings (font size to 15)
     " 11. Disable: File | Settings | Editor | General | Code Folding | Fold by default | .NET | Preprocessor Regions
     " 12. Install Allocation Heap Viewer by Alex S
-    " 13. Set 'Remove Trailing Spaces On' to 'All Lines'
 
     " ---------------------------------------------------------------------------------------------
     " .ideavimrc by JetBrains
