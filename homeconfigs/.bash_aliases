@@ -30,6 +30,7 @@ alias vds='open-dotnet-secrets.sh vi'
 alias rds='open-dotnet-secrets.sh $RIDER_BIN'
 
 ridert() {
+		mkdir -p $(dirname $1)
 		touch $1
 		rider $1
 }
