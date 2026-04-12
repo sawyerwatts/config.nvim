@@ -18,6 +18,8 @@ alias tmuxa='tmux a'
 
 alias treecs='tree -I bin -I obj -I Logs'
 
+alias findcs='find -name "*.cs" -not -path "*/obj/*"'
+
 ################################################################################
 # .NET/Rider
 ############
