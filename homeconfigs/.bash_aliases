@@ -29,7 +29,7 @@ alias rider="$RIDER_BIN"
 alias rs='rider-sessionizer.sh'
 
 alias vds='open-dotnet-secrets.sh vi'
-alias rds='open-dotnet-secrets.sh $RIDER_BIN'
+alias rds='open-dotnet-secrets.sh "$RIDER_BIN"'
 
 ridert() {
 		mkdir -p $(dirname $1)

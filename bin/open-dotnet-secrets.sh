@@ -9,7 +9,7 @@ IFS=$'\n\t'
 
 source "$(dirname "$0")/.env"
 
-editor=${1:-}
+editor="${1:-}"
 if [[ -z "$editor" ]]
 then
     echo "usage: dotnet-secrets.sh EDITOR"
