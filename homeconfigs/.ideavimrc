@@ -70,6 +70,8 @@ if has('ide')
     " 10. Install Harpooner plugin (or try HarpoonIJ again), and configure settings (font size to 15)
     " 11. Disable: File | Settings | Editor | General | Code Folding | Fold by default | .NET | Preprocessor Regions
     " 12. Install Allocation Heap Viewer by Alex S
+    " 13. Unbind Esc from 'Close Diff Editor'
+    " 14. Enable Staging Area
 
     " ---------------------------------------------------------------------------------------------
     " .ideavimrc by JetBrains
@@ -160,14 +162,6 @@ if has('ide')
     vmap <A-i> <Action>(MethodDown)
     vmap <A-o> <Action>(MethodUp)
 
-    nmap <leader>b <Action>(ToggleLineBreakpoint)
-    nmap <leader>B <Action>(AddConditionalBreakpoint)
-    " TODO: func keys for debug/run opts?
-    " vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
-    " vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
-    " vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
-    " vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
-
     imap <A-l> <Action>(CodeCompletion)
     imap <A-j> <Action>(EditorDown)
     imap <A-k> <Action>(EditorUp)
@@ -182,11 +176,29 @@ if has('ide')
     vmap <Leader>ca <Action>(ShowIntentionActions)
     nmap <Leader>cr <Action>(RenameElement)
 
+    " Git / VCS ops
+    nmap <Leader>vs <Action>(ActivateCommitToolWindow)
+    nmap <Leader>vd <Action>(Compare.SameVersion)
+    nmap <Leader>ve <Action>(Diff.OpenInEditor)
+    nmap <Leader>vn <Action>(NextDiff)
+    nmap <Leader>vp <Action>(PreviousDiff)
+    nmap <Leader>vh <Action>(Vcs.ShowTabbedFileHistory)
+    nmap <Leader>vb <Action>(Annotate)
+    nmap <Leader>vl <Action>(Vcs.Show.Log)
+
+    " Build/run
     nmap <Leader>rb <Action>(BuildWholeSolutionAction)
     nmap <Leader>rr <Action>(Run)
     nmap <Leader>rs <Action>(Stop)
     nmap <Leader>rd <Action>(Debug)
     " There's a <Leader>rt keymap in rider to run unit tests
+    nmap <leader>b <Action>(ToggleLineBreakpoint)
+    nmap <leader>B <Action>(AddConditionalBreakpoint)
+    " TODO: func keys for debug/run opts?
+    " vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
+    " vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
+    " vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
+    " vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
 
     "nmap <Leader>ds <Action>(Docker.RemoteServers.StopContainer)
 
