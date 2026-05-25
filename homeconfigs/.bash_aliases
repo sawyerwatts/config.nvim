@@ -20,6 +20,9 @@ alias treecs='tree -I bin -I obj -I Logs'
 
 alias findcs='find -name "*.cs" -not -path "*/obj/*"'
 
+alias gsmp='git switch main && git pull'
+alias gs='git status'
+
 ################################################################################
 # .NET/Rider
 ############
