@@ -189,6 +189,7 @@ if has('ide')
 
     " Build/run
     nmap <Leader>rb <Action>(BuildWholeSolutionAction)
+    nmap <Leader>rc <Action>(CleanSolutionAction)
     nmap <Leader>rr <Action>(Run)
     nmap <Leader>rs <Action>(Stop)
     nmap <Leader>rd <Action>(Debug)
