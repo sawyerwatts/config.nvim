@@ -148,7 +148,6 @@ if has('ide')
     nmap <Leader>sd <Action>(ActivateProblemsViewToolWindow)
     nmap <Leader>st <Action>(ActivateTODOToolWindow)
     nmap <Leader>n <Action>(ActivateProjectToolWindow)
-    nmap <Leader>cz <Action>(ActivateAzureExplorerToolWindow)
 
     nmap <Leader>/ <Action>(Replace)
     vmap <Leader>/ <Action>(Replace)
