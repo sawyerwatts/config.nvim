@@ -112,7 +112,7 @@ if has('ide')
 
     " Harpooner
     nmap <leader>l <action>(HarpoonerToggleQuickMenu)
-    nmap <leader>a <action>(HarpoonerToggleFile)
+    nmap <leader>a <action>(HarpoonerAddFile)
     nmap <A-f> <action>(HarpoonerOpenFile0)
     nmap <A-d> <action>(HarpoonerOpenFile1)
     nmap <A-s> <action>(HarpoonerOpenFile2)
