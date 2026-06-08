@@ -187,6 +187,8 @@ if has('ide')
     nmap <Leader>vl <Action>(Vcs.Show.Log)
     nmap <Leader>va <Action>(Git.Add)
 
+    nmap <Leader>yf <Action>(CopyPathFromRepositoryRootProvider)
+
     " Build/run
     nmap <Leader>rb <Action>(BuildWholeSolutionAction)
     nmap <Leader>rc <Action>(CleanSolutionAction)
@@ -220,7 +222,6 @@ if has('ide')
         nmap gci <Action>(RiderShowIncomingCalls)
         nmap gco <Action>(RiderShowOutgoingCalls)
         nmap <Leader>rt <Action>(RiderUnitTestRunSolutionAction)
-        nmap <Leader>yf <Action>(RiderCopyRootPath)
     else
         nmap <A-;> <Action>(GotoNextError)
         nmap <A-,> <Action>(GotoPreviousError)
