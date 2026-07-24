@@ -22,6 +22,8 @@ alias findcs='find -name "*.cs" -not -path "*/obj/*"'
 
 alias gsmp='git switch main && git pull'
 alias gs='git status'
+alias gr='git restore'
+alias grs='git restore --staged'
 
 ################################################################################
 # .NET/Rider
