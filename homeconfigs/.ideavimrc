@@ -198,15 +198,10 @@ if has('ide')
     " There's a <Leader>rt keymap in rider to run unit tests
     nmap <leader>b <Action>(ToggleLineBreakpoint)
     nmap <leader>B <Action>(AddConditionalBreakpoint)
-    " TODO: func keys for debug/run opts? leader-f then a-s-d-f for diff ops?
-    " Resume
-    " StepOver
-    " StepInto
-    " StepOut
-    " vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
-    " vim.keymap.set('n', '<F1>', dap.step_into, { desc = 'Debug: Step Into' })
-    " vim.keymap.set('n', '<F2>', dap.step_over, { desc = 'Debug: Step Over' })
-    " vim.keymap.set('n', '<F3>', dap.step_out, { desc = 'Debug: Step Out' })
+    nmap <F11> <Action>(Resume)
+    nmap <F14> <Action>(StepOver)
+    nmap <F13> <Action>(StepInto)
+    nmap <F12> <Action>(StepOut)
 
     "nmap <Leader>ds <Action>(Docker.RemoteServers.StopContainer)
 
